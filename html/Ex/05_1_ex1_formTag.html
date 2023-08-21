@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- form action="" : 내가 이동할 페이지 -->
+
+	<!-- 	**선택했을때 이동**
+		1. label 태그 for 과 input 태그 id 의 값이 일치해야함
+		2. 값이 중복되면 안됌
+
+		<input 태그>
+		maxlength : 최대 글자수 제한
+		name : input 의 이름 (유저들에게 받는 값은 name을 꼭 줘야함)
+		placeholder : 
+		required : 필수항목 (입력하지않으면 전송 불가)
+		readonly : 읽기만 가능한 속성 (쓰기 불가, ) value 를 이용해 고정
+		value : 전송 받는 값
+	-->
+
+	<!-- 	** input type **
+	1.password : 비밀 번호 ( ex)***** )
+	2.email : 이메일 형식 ( @이 포함이 안되면 전송불가 )
+	3.submit : 제출 버튼
+	4.number : 숫자만 입력 가능 / min 최소 max 최대
+	5.range : 슬라이드 막대
+	6.date : 달력 생성
+	7.reset : 초기화 버튼
+
+	-->
+	<form action="">
+		<fieldset>
+			<legend>기본사항</legend>
+			<label for="id"> ID : </label>
+			<input type="text" name="id" id="id" maxlength="5" placeholder="ID를 입력 하세요.">
+			<br>
+			<label for="pw"> PW : </label>
+			<input type="password" name="pw" id="pw" required>
+			<br>
+			<label for="txta"> 기타 : </label>
+			<textarea name="txta" id="txta" cols="30" rows="10"> </textarea>
+			<br>
+			<!-- select 태그 : 드롭다운 목록을 만들어줌 
+					자식 option 태그 -->
+			<label for="poketmon">포켓몬 : </label>
+			<select name="poketmon" id="poketmon">
+				<option value="0">피카츄</option>
+				<option value="1">라이츄</option>
+				<option value="2">파이리</option>
+			</select>
+		</fieldset>
+		<br>
+		<label for="email">email : </label>
+		<input type="email" name="email" id="email" readonly value="세팅값">
+		<br>
+		<label for="number"> number : </label>
+		<input type="number" name="number" id="number" min="0" max="5">
+		<br>
+		<label for="range" range :> range : </label>
+		<input type="range" name="range" id="range" min="0" max="10">
+		<br>
+		<label for="date" range :> date : </label>
+		<input type="date" name="date" id="date">
+
+		<br>
+		<label for="banana"> 바나나 : </label>
+		<input type="checkbox" name="banana" id="banana" name="chk_fruit">
+		
+		<label for="sb"> 딸기 : </label>
+		<input type="checkbox" name="sb" id="sb" name="chk_fruit">
+		
+		<label for="wm"> 수박 : </label>
+		<input type="checkbox" name="wm" id="wm" name="chk_fruit">
+		<br>
+
+		<!-- radio 태그의 name을 동일하게 했을 시 : 중복선택 불가능
+								다르게 했을 시 : 중복선택 가능 -->
+		<label for="a">짜장면</label>
+		<input type="radio" id="a" name="foods">
+		<label for="b">탕수육</label>
+		<input type="radio" id="b" name="foods">
+
+
+		<br>
+		<!-- input type="submit"> <input type="reset">
+		★ 실제 업무에서는 button 태그를 사용 -->
+
+		<button type="submit">전송</button>
+		<button type="reset">초기화</button>
+		<button type="button">버튼</button>
+		<br>
+
+		<input type="hidden" value="히든"
+
+	</form>
+</body>
+</html>

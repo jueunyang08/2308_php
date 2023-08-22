@@ -1,0 +1,13 @@
+/* table 태그는 일반적으로 타입 스타일로 사용 */
+
+table {
+	border: 1px solid #000; /* 실선*/
+	border-collapse: collapse; /*선 여백 없애기*/
+	caption-side: bottom; /* 캡션 위치*/
+	/*border-spacing: 20px 15px; /*선 여백 간격 조정*/
+}
+
+th, td {
+	border: 1px dotted #000; /*점선*/
+	width: 100px; /*가로길이조절*/
+}

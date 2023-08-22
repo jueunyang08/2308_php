@@ -1,0 +1,17 @@
+.tran {
+	text-transform: capitalize; /* 첫글자만 대문자*/
+	text-transform: uppercase; /* 전체 대문자*/
+	text-transform: lowercase; /*전체 소문자*/
+}
+
+.spacing {
+	letter-spacing: 1.5em; /* 자간*/
+}
+
+.w_spacing {
+	word-spacing: 1.5em; /* 단어 간격*/
+}
+
+.shadow {
+	text-shadow: 5px 2px 3px #929292;
+}

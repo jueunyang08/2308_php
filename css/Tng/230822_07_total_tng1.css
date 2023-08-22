@@ -1,0 +1,26 @@
+/* 웹 브라우저 평균 글자 크기 14px
+body { font-size : 14px }
+
+폰트사이즈, 줄간격(line-height) rem 으로 보통 조절 */
+
+.div1 {
+	border: 1px solid #000;
+	width: 500px;
+}
+/* div 태그에 실선*/
+
+
+.a {
+	list-style-type: none;
+}
+
+/* class 선택자 불릿 제거*/
+
+
+.font-style {
+	color: #ad3000;
+	font-weight: 1000;
+	font-size: 25px;
+	line-height: 50px;
+	
+}

@@ -1,0 +1,22 @@
+/* */
+.deco {
+	text-decoration: none; /*디폴트값*/
+	text-decoration: underline; /* 밑줄 */
+	text-decoration: line-through; /* 취소 선*/
+}
+/* 줄 간격 속성 */
+.height {
+	line-height: 2em;
+}
+.left {
+	text-align: left; 
+}
+.right {
+	text-align: right;
+}
+.center {
+	background-color: bisque;
+	height: 300px;
+	line-height: 300px;
+	text-align: center;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/06_4_ex1.css">
+</head>
+<body>
+	<!-- 스타일 우선 순위
+
+		*가장 마지막에 있는 스타일이 적용 됌
+		*우선순위 스타일에 따라 적용 됌
+
+		1. !important (되도록 이면 사용하지 않음)
+		2. 인라인 스타일
+		3. 아이디 스타일(id=""/#)
+		4. 클래스 스타일(class=""/.)
+		5. 타입 스타일 -->
+	
+		<div class="container">
+		<h1 class="h1-1" id="h1-id" style="color: brown;"> 적용 순위 </h1>
+		<h1 class="h1-1" id="h1-id"> 적용 순위 </h1>	
+		</div>
+</body>
+</html>

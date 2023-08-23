@@ -1,0 +1,36 @@
+/*화면에 표시 x*/
+.none {
+	display: none;
+}
+
+/* block 레벨 : width 값으로 조절*/
+
+
+.block {
+	display: block;
+}
+
+span {
+	border: 1px solid #000;
+	width: 150px;
+}
+div {
+	border: 5px solid #000;
+	padding: 10px;
+
+}
+
+.inline {
+	border: 1px solid #000;
+	display: inline;
+}
+.inline-block {
+	border: 1px solid #000;
+	width: 300px;
+	display: inline-block;
+}
+
+
+/* box 
+1. div,h1,p 등등 (block)
+2. span (inline) */

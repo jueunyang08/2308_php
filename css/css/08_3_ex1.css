@@ -1,0 +1,20 @@
+.container_1 {
+	border: 5px solid #000;
+	width: 400px;
+	margin: 20px;
+}
+.container_2 {
+	border: 5px solid #000;
+	width: 400px;
+	margin: 20px;
+}
+h1, p {
+	border: 1px solid #000;
+	width: 150px;
+	margin: 10px auto;
+}
+span {
+	border: 1px solid #000;
+	width: 150px;
+	margin: 10px;
+}

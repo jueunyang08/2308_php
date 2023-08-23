@@ -1,0 +1,57 @@
+main, section, article {
+	padding: 20px;
+}
+main {
+	background-color: cadetblue;
+}
+section {
+	background-color: antiquewhite;
+	
+}
+article {
+	background-color: darkgreen;
+	position: relative;
+	height: 500px;
+	width: 200px;
+	float: right;
+
+}
+/* 기본 정렬*/
+.div_static {
+	background-color: lightblue;
+	position: static;
+/* static 과 동일하지만 위치를 지정해 배치 가능*/
+}
+.div_relative {
+	background-color: lightcoral;
+	position: relative;
+	left: -30px;
+}
+/* 포지션 값 relative 를 기준으로 움직임
+바로 위 상위 요소에 붙음 
+body는 기본적으로 relative 속성값을 갖고 있음*/
+.div_absolute {
+	background-color: lightpink;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	/* z-index : 기본값은 0 , 숫자가 큰 순서대로
+	최상위 */
+	z-index: 0;
+}
+/* 뷰포트기준으로 움직임*/
+.div_fixed {
+	background-color: lightgoldenrodyellow;
+	position: fixed;
+	right: 10%;
+	bottom: 10%;
+}
+/* static 이랑 똑같이 작동
+top에 주면 상단에 고정 */
+.div_sticky {
+	background-color: lightgreen;
+	position: sticky;
+	top: 0px;
+}
+

@@ -23,11 +23,13 @@ div {
 .inline {
 	border: 1px solid #000;
 	display: inline;
+	margin: 20px;
 }
 .inline-block {
 	border: 1px solid #000;
-	width: 300px;
+	width: 200px;
 	display: inline-block;
+	text-align: center;
 }
 
 

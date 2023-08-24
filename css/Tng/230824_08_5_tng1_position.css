@@ -1,0 +1,29 @@
+.con {
+	border: 1px solid #000;
+	width: 340px;
+	height: 340px;
+	position: relative;
+}
+.p1, .p2, .p3 {
+	border: 1px solid #000;
+	width: 100px;
+	height: 100px;
+}
+
+.p1 {
+	position: absolute;
+	left: 30px;
+	top: 30px;
+}
+.p2 {
+	position: absolute;
+	right: 50px;
+	top: 60px;
+	
+}
+
+.p3 {
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+}

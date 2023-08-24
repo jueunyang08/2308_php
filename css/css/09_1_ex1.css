@@ -1,0 +1,12 @@
+h1 {
+	background-color: darkcyan;
+	border: 10px dotted #000;
+	/* 외부에 선 적용 */
+	/* background-clip: padding-box; */
+
+	/* 컨텐츠 */
+	width: 200px;
+	height: 100px;
+	padding: 20px;
+	background-clip: content-box;
+}

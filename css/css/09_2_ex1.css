@@ -1,0 +1,18 @@
+body {
+	background-image: url(/css/img/beach-1236581_1280.jpg);
+	background-size: cover;
+	/* 1번만 (바둑판 해제) */
+	background-repeat: no-repeat;
+
+	/* background-repeat: repeat-x; 가로축 */
+	
+	/* background-position: 50% 화면 중앙 */
+}
+.div-img {
+	
+	
+/*  */
+	background-size: cover;
+	width: 500px;
+	height: 500px;
+}

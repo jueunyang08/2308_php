@@ -1,0 +1,33 @@
+body {
+	background-color: #02233b;
+}
+.con {
+	background-image: url(/css/img/beach-1236581_1280.jpg);
+	background-repeat: no-repeat;
+	background-size: 400px;
+	background-position: right bottom;
+
+	background-color: white;
+	margin: 0 auto;
+	padding: 20px;
+	width: 600px;
+	height: 700px;
+}
+.header {
+	background-color: rgb(75, 44, 134);
+	color: white;
+
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+}
+h2 {
+	text-align: center;
+}
+h3 {
+	color: red;
+}
+/* 불릿 제거*/
+ul {
+	list-style-type: none;
+}

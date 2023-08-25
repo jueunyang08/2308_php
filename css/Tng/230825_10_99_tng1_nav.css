@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	width: 800px;
+	margin: auto;
+}
+
+li a:link {
+	color: #000;
+}
+li a:visited {
+	color: #000;
+}
+.menu1 a:hover {
+	display: block;
+	background-color: #6e6e6e;
+}
+.menu2 a:hover {
+	display: block;
+	background-color: red;
+	color: white;
+}
+ul {
+	display: inline-block;
+	height: 40px;
+	box-shadow: 5px 5px 10px 2px #000;
+	padding: 0;
+}
+li {
+	border-right: 1px solid #000;
+	background-color: rgb(194, 194, 194);
+
+	list-style-type: none;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
+a {
+	text-decoration: none;
+}
+.menu1, .menu2 {
+	float: left;
+}
+.menu2 {
+	border-style: none;
+}
+

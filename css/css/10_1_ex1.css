@@ -1,0 +1,20 @@
+/* 상위요소/하위요소 하위 선택자 */
+header div span {
+	color: aqua;
+}
+
+/* 부모요소/자식요소 자식 선택자 */
+header>span {
+	color: blueviolet;
+}
+
+/* (바로 위에 있는)형제선택자
++ : span 아래에 있는 p태그 */
+main span+p {
+	color: blue;
+}
+/*
+~ : span 밑에 있는 모든 p태그 */
+span~p {
+	color: orange;
+}

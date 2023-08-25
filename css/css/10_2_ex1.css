@@ -1,0 +1,29 @@
+/* [] 대괄호 : 속성명  */
+[target] {
+	color: green;
+}
+
+[target=daum] {
+	color: blue;
+}
+/* 속성명*=속성값 : 해당 속성값의 명칭이 포함되어 있는
+일부가 일치하는 값 */
+[class*=att_class] {
+	color: aqua;
+}
+
+
+[class|=att] {
+	color: yellowgreen;
+}
+/* 속성명~=속성값 : 특정속성값이 포함되어 있는 선택자  */
+[class~=att_class] {
+	color: chocolate;
+}
+[class^=co] {
+	color: pink;
+}
+/* 속성명 'k1'로 끝나는 태그포함*/
+[class$=k1] {
+	color: cadetblue;
+}

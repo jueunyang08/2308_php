@@ -1,0 +1,59 @@
+
+/* 링크 방문 전 */
+a:link {
+	color: blue
+}
+/* 링크 방문 후 */
+a:visited {
+	color: aquamarine;
+	}
+	/* 커서를 올려 놨을때 */
+a:hover {
+	background-color: black;
+}
+/* 활성화(클릭 했을때만 잠시 활성화) */
+#input-1:active {
+	border: 2px solid green;
+	outline: none;
+}
+/* 초점 (클릭 시) */
+#input-1:focus {
+	background-color: yellow;
+	border: 2px solid blue;
+	outline: none;
+}
+/* input에 checked 할시 : 속성 */
+input:checked+label {
+	color: orange;
+}
+#target-1:target {
+	background-color: antiquewhite;
+}
+/* :nth-child() 몇번째 자식을 선택할것 인가 
+우선순위 : 단수 > 복수 */
+.container :nth-child(1) {
+	color: rgb(0, 255, 200)
+}
+/* p태그 중에 몇번째 인 애를 선택할것 인가 */
+.container p:nth-of-type(2) {
+	color: rgb(177, 8, 255)
+}
+/* p가 아닌 태그들에게 속성값 */
+.container :not(p) {
+	color: chartreuse;
+}
+/* ::before 앞에 작성, ::after 뒤에 작성,
+ex) 아이디 폼 앞에 필수 입력 */
+#label-2::before {
+	content: '*';
+	color: red;
+}
+/* 첫번째 글자만 지정하여 속성값을 줌
+ex) 첫글자만 크게 키울때 */
+.korean-1::first-letter {
+	font-style: italic;
+}
+/* 첫번째 줄만 속성값을 줄때 */
+.korean-2::first-line {
+	background-color: black;
+}

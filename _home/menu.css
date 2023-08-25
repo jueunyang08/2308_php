@@ -1,0 +1,32 @@
+* {
+	margin: 0 auto;
+	padding: 0;
+}
+.main {
+width: 300px;
+
+text-align: center;
+
+}
+
+div>div {
+	border-right: 1px solid #000;
+	width: 100px;
+	height: 30px;
+	box-sizing: border-box;
+	float: left;
+	background-color: aqua;
+	line-height: 30px;
+	border-radius: 4px;
+	margin-top: 20px;
+
+
+}
+div>div:last-child {
+	background-color: rebeccapurple;
+	border:none ;
+}
+div a:hover {
+	display: block;
+	background-color: #000;
+}

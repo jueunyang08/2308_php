@@ -1,0 +1,45 @@
+.container {
+	background-color: gray;
+	margin: 10px;
+	width: 60vw;
+	height: 60vh;
+	display: flex;
+	/* 
+	flex-direction: : flex 주축의 방향을 조절
+		- row; 주축을 가로로 지정, 왼쪽에서 오른쪽으로 배치) 
+		- column; 행 (세로로 지정, 위에서 아래로 배치)
+	*/
+	flex-direction: row;
+	/* flex-wrap :
+		- nowrap; : 한줄로 표시 (자동으로 width 조절) 디폴트값
+		- wrap; : 두줄로 표시 (width 안맞으면 두줄)
+	*/
+	flex-wrap: wrap;
+	/* 
+	flex-direction + flex-wrap 한번에 쓰기
+	flex-flow: row wrap;
+	*/
+	
+	/* justify-content: 주축(flex direction: row)을 기준으로 하는
+	정렬 방식
+
+		- flex-start : 디폴트값(row 왼쪽)
+		- flex-end : row (오른쪽)
+		- center : 중앙
+		- space-between : 컨텐츠를 벽에 붙이고, 여백을 동일하게 나눠줌
+		- space-around : 
+	 */
+	justify-content: flex-start;
+	/*
+	align-items : 교차축(reverse 기준)
+	 - flex-start : 디폴트값
+	 - flex-end : 반대값
+	*/
+	align-items: baseline;
+}
+.item {
+	width: 15vw;
+	height: 15vh;
+	background-color: skyblue;
+	border: 1px solid #000;
+}

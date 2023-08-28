@@ -1,0 +1,73 @@
+/* bg */
+fieldset {
+	background-image: url(/css/img/beach-1852945_1280.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+/* 투명하게 */
+input, #request {
+	background-color: transparent;
+}
+/* 중앙정렬 */
+form {
+	margin: auto;
+	width: 500px;	
+}
+/* 전체 글자 굵게 */
+legend, li, #m, #w {
+	font-weight: bold;
+}
+/* 타이틀 */
+legend {
+	font-size: 30px;
+	color: rgb(255, 61, 197)
+}
+/* 불릿제거 및 왼쪽 여백 제거 */
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+/* label 옆 필수 항목 '*' */
+#nameid::before, #ageid::before, #mw::before {
+	content: '*';
+	color: red;
+}
+/* 요청사항 왼쪽으로 float */
+#r {
+	float: left;
+}
+/* textarea 왼쪽 마진 및 floar 해제 */
+#request {
+	margin-left: 10px;
+	clear: both;
+}
+/* 이름, 나이, 요청사항 클릭 시 input에 빨간줄  */
+#name:focus, #age:focus, #request:focus {
+	border: 3px solid red;
+	outline: none;
+}
+/* radio 선택시 색상 바뀜 */
+input:checked +label {
+	color: red;
+}
+/* relative 상위 영역 */
+.send-div {
+	position: relative;
+}
+/* absolute / hover시 나오는 영역 */
+.send1 {
+	background-color: black;
+	color: white;
+	width: 250px;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 60px;
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+/* 보내기 hover시 diplay: none > block 으로 변경 */
+#send:hover + .send1 {
+	display: block;
+}

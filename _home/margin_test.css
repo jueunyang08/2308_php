@@ -1,0 +1,18 @@
+.con {
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+}
+.item1, .item2, .item3, .item4 {
+    border: 1px solid #000;
+    background-color: bisque;
+    display: inline-block;
+
+    width: 100px;
+    height: 100px;
+position: relative;
+top: 50%;
+transform: translateY(-50%);
+vertical-align: middle;
+float: left;
+}

@@ -31,15 +31,19 @@
 	 */
 	justify-content: flex-start;
 	/*
-	align-items : 교차축(reverse 기준)
+	align-items : 교차축(x축 > y축)
 	 - flex-start : 디폴트값
-	 - flex-end : 반대값
+	 - flex-end : 교차축의 끝점
+	 - baseline : 교차축의 문자 기준선에 맞춰 배치
 	*/
-	align-items: baseline;
+	align-items: flex-start;
 }
 .item {
 	width: 15vw;
 	height: 15vh;
 	background-color: skyblue;
 	border: 1px solid #000;
+}
+.item2 {
+	align-self: center;
 }

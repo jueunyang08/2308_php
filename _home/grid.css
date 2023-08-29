@@ -1,0 +1,18 @@
+.con {
+	box-sizing: border-box;
+	background-color: black;
+	width: 300px;
+	height: 300px;
+	padding: 15px;
+}
+.garden {
+	display: grid;
+	box-sizing: border-box;
+	background-color: transparent;
+	grid-template-columns: repeat(5, 50px);
+	grid-template-rows: repeat(5, 50px);
+	grid-gap: 5px;
+}
+.item {
+	background-color: antiquewhite;
+}

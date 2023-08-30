@@ -1,0 +1,141 @@
+총 75점 만점
+
+0. 제출 시, 아래의 구성을 압축하여 제출 (2점)
+	홍길동_HTML_CSS
+		> img
+			>img_1.jpg
+			>item_1.jpg
+			>item_2.jpg
+			>item_3.jpg
+			>item_4.jpg
+			>item_5.jpg
+		>exam.html
+		>exam.css
+
+1. 시멘틱 레이아웃을 기반으로 레이아웃을 마크업 (5점)
+
+2. 큰 골격은 <header>, <main>, <footer> 태그로 로 구성 (1점)
+
+3. 공통 (총 30점)
+	3-1. 반응형 웹 레이아웃 구성 (25점)
+		- 브레이크 포인트는 약 560px, 800px, 1050px, 1300px
+		- 대략적이 수치이면 문제 없음
+		- 사용하는 속성에 제한은 없음
+		- 레이아웃은 첨부 이미지를 참조
+	3-2. 웹폰트 설정 (1점)
+		- url : https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap
+		- 적용 폰트 : 
+			> 1순위 : Sedgwick Ave Display
+			> 2순위 : cursive
+	3-3. a Tag 스타일 (4점)
+		- 외곽선 : 모서리 둥글게 처리
+		- 글자색 : #ffffff
+		- 글자크기 : 1.5rem
+		- 글자 중앙 정렬
+		- 마우스 커서를 올릴 시 아래 효과 적용
+			> 불투명도 0.6 적용
+			> 불투명도 전환 딜레이 0.5초 적용
+
+4. header 영역 (총 10점)
+	4-1. 해더 텍스트 내용 (1점)
+		- 주제 : You thirsty?
+		- 문장 글 : Explore local breweries with just one click and stirred by starlight across the centuries light years great turbulent clouds circumnavigated paroxysm of global death.
+		- 이동버튼(a Tag) : Browse Breweries
+	4-2. 헤더 스타일 (8점)
+		- 글자색 : #ffffff
+		- 글자크기
+			> 주제 : 4rem
+			> 문장 글 : 1.5rem
+			> 이동버튼(a Tag) : 1.0rem
+		- 배경
+			> img폴더의 img_1.jpg를 설정
+			> 꽉차게 설정
+		- 그 외 레이아웃은 사진을 참조하여 설정
+	4-3. 기능 (1점)
+		- 이동 버튼 클릭 : 메인영역으로 스크롤 이동
+
+5. main 영역 (총 20점)
+	4-1. main 영역의 HTML 코드는 아래에 제공한 그대로 사용하여 레이아웃을 구성할 것 (5점)
+		<article>
+			<figure>
+				<img src="" alt="">
+				<figcaption>
+					<h3>Billions upon billions</h3>
+				</figcaption>
+			</figure>
+			<p>Made in the interiors of collapsing stars star stuff harvesting star light venture billions upon billions Drake Equation brain is the seed of intelligence?</p>
+			<a href="#">Visit Website</a>
+		</article>
+		<article>
+			<figure>
+				<img src="" alt="">
+				<figcaption>
+					<h3>Drake Equation</h3>
+				</figcaption>
+			</figure>
+			<p>Another world citizens of distant epochs from which we spring descended from astronomers Orion'ssword shores of the cosmic ocean.</p>
+			<a href="#">Visit Website</a>
+		</article>
+		<article>
+			<figure>
+				<img src="" alt="">
+				<figcaption>
+					<h3>Vast cosmic arena</h3>
+				</figcaption>
+			</figure>
+			<p>Galaxies the ash of stellar alchemy prime number science inconspicuous motes of rock and gas brain is the seed of intelligence.</p>
+			<a href="#">Visit Website</a>
+		</article>
+		<article>
+			<figure>
+				<img src="" alt="">
+				<figcaption>
+					<h3>Wall Painting, VUOTO Project</h3>
+				</figcaption>
+			</figure>
+			<p>We can finally share our work made for Vuoto project in Altomonte, one of the most beautiful experiences of our life.</p>
+			<a href="#">Visit Website</a>
+		</article>
+		<article>
+			<figure>
+				<img src="" alt="">
+				<figcaption>
+					<h3>The Peregrine Falcons</h3>
+				</figcaption>
+			</figure>
+			<p>They are machines, alive and powerful.Their lines are inspired by those of the Urwerk watches: sharp and fluid. They are not specifically mechanical birds,</p>
+			<a href="#">Visit Website</a>
+		</article>
+	4-2. 공통 (6점)
+		- 컨텐츠
+			> 이미지, 상품명, 상세내용, 이동버튼(a Tag)가 포함
+		- 외곽선
+			> 모서리 둥글게 처리
+			> 색상 : #E2E2E2
+		- 그 외 레이아웃은 사진을 참조하여 설정
+	4-3. 이미지 (3점)
+		- img Tag를 이용하여 적용
+		- 파일명 : item_n.jpg (n은 정수)
+		- alt 속성 적용 : 속성값은 파일명
+	4-4. 상품명 (3점)
+		- 이미지의 하단부 위에 위치
+		- 배경색 : 검정, 불투명도 0.7
+		- 글자색 : #ffffff
+	4-5. 상세내용(1점)
+		- 글자색 : #000
+		- 글자 크기 : 기본 크기
+	4-6. 이동버튼(a Tag) (2점)
+		- 글자크기 : 1rem
+		- 그 외 공통의 적용사항과 동일
+
+6. footer 영역 (총 7점)
+	6-1. footer 텍스트 내용 (1점)
+		- 주제 : © 2021. GREEN COMPUTER ART ACADEMY DAEGU
+
+	6-2. footer 스타일 (5점)
+		- 글자색 : #ffffff
+		- 글자크기 : 0.75rem
+		- 배경색 : #333
+		- 문장 중앙 정렬
+		- 뷰포트 최하단 고정
+		- 그 외 레이아웃은 사진을 참조하여 설정

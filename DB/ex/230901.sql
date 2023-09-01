@@ -112,7 +112,7 @@ WHERE (dept_no, emp_no) IN (SELECT dept_no, emp_no FROM dept_manager WHERE to_da
 -- select 절에 사용하는 서브쿼리
 -- 사원의 현재 급여, 현재 급여를 받기시작한 일자, 풀네임을 출력해주세요.
 SELECT
-	sal.salary, sal.from_date,
+	sal.salary, sal.from_date, sal.emp_no,
 	(SELECT CONCAT(emp.first_name, ' ', emp.last_name)
 	FROM employees AS emp
 	WHERE sal.emp_no = emp.emp_no) AS full_name

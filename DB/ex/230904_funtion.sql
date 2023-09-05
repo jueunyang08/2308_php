@@ -13,7 +13,7 @@ SELECT emp_no, if(e.gender = 'm', '남자', '여자') AS gender
 FROM employees e;
 
 -- IFNULL(수식1, 수식2) : 수식1이 NULL이면 수식2를 반환하고, NULL이 아니면 수식1을 반환 
-SELECT IFNULL(null, '수식2'); 
+SELECT IFNULL('수식1', '수식2'); 
 
 SELECT emp_no, title, to_date, IFNULL(to_date, DATE(NOW())) AS to_date2
 FROM titles ORDER BY emp_no DESC;

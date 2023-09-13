@@ -75,11 +75,63 @@
 // }
 // ---------------------------------------
 
-for($i=1; $i<=9; $i++) {
-	echo "{$i}단 \n";
+// for($i=1; $i<=9; $i++) {
+// 	echo "{$i}단 \n";
 
-	for($n=1; $n<=9; $n++) {
-		$total = $i*$n;
-		echo "{$i} * {$n} = {$total} \n";
+// 	for($n=1; $n<=9; $n++) {
+// 		$total = $i*$n;
+// 		echo "{$i} * {$n} = {$total} \n";
+// 	}
+// }
+
+//  //* ** ***
+
+//  for($i=1; $i<=5; $i++) {
+// 	for($s=1;$s<=5;$s++) {
+// 		if($s<=$i) {
+// 			echo "*";
+// 		}
+// 	}
+// 	echo "\n";
+//  }
+// $int_line = 1;
+//  while ($int_line <= 5) {
+// 	$int_star = 1;
+// 	while($int_star<=$int_line) {
+// 		echo "*";
+// 		$int_star++;
+// 	}
+// 	echo "\n";
+// 	$int_line++;
+
+//  }
+
+
+
+
+
+
+//  for($i=1; $i<=5; $i++) {
+// 	for($s=5; $s>=1; $s--) {
+// 		if($s>$i) {
+// 			echo " ";
+// 		}
+// 		else {
+// 			echo "*";
+// 		}
+// 	}
+// 	echo "\n";
+//  }
+ 
+ $num=5;
+ for($x=1;$x<=$num;$x++){
+	for($y=$num-$x;$y>=1;$y--) {
+		echo " ";
 	}
-}
+	for($z=1;$z <= 2 * $x-1; $z++) {
+		echo "*";
+	}
+	echo "\n";
+ }
+
+

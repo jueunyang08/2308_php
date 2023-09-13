@@ -18,12 +18,13 @@
 function add($num) {
 	$total = 0;
 	$arr = str_split($num);
-	foreach ($arr as $val) {
-		$total += $val;
-	}
-	return $total;
+	return array_sum($arr);
+	// foreach ($arr as $val) {
+	// 	$total += $val;
+	// }
+	// return $total;
 }
-echo add("1234"),"\n";
+echo add("34215"),"\n";
 
 // 문자열 수세기
 $str = "hello";
@@ -32,3 +33,4 @@ echo "문자열수 : " .strlen($str), "\n";
 $str = "welcome to everdevel";
 $change = str_replace('welcome','hello',$str);
 echo $change;
+

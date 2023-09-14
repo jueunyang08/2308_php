@@ -28,10 +28,13 @@ class ClassRoom //객체지향 카멜기법
 		$this->book."\n".
 		$this->bag."\n";
 
-		echo $str;
+		echo $str; }
 
-}
-}
+		//static : instance생성을 하지않아도 호출 할수 있습니다.
+
+		// public static function static_test();
+
+	}
 
 // class instance 생성
 $obj_ClassRoom = new ClassRoom();
@@ -39,3 +42,6 @@ $obj_ClassRoom = new ClassRoom();
 // $obj_ClassRoom->class_room_set_value();
 $obj_ClassRoom->class_room_set_value();
 $obj_ClassRoom->class_room_print();
+
+//static 객체 사용방법
+ClassRoom::static_test();

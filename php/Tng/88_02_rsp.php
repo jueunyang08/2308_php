@@ -166,7 +166,7 @@
 		echo $sum;
 	}
 
-	echo sum(8, 6);
+	echo sum(5, 6);
 
 	echo "\n";
 	// -----------5

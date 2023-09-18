@@ -16,7 +16,7 @@
 function my_db_conn( &$conn ) { //레퍼런스 파라미터 
 $db_host = "localhost"; // host // del v001 /OR/ add v002
 $db_user = "root";
-$db_pw = "php504";
+$db_pw = "1234";
 $db_db_name = "employees";
 $db_charset = "utf8mb4";
 $db_dns = "mysql:host=".$db_host.";dbname=".$db_db_name.";charset=".$db_charset;

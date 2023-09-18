@@ -5,7 +5,7 @@ $conn = null;
 
 my_db_conn($conn);
 
-// FLUSH PRIVILEGES;
+// FLUSH PRIVILEGES; //DB에서 
 
 // SQL 1. 자신의 사원 정보를 employees 테이블에 등록해 주세요.
 $sql = 
@@ -36,14 +36,15 @@ $arr_ps = [
 ];
 
 $stmt = $conn->prepare($sql);
-$result = $stmt->execute($arr_ps);
+$result = $stmt->execute($arr_ps); // print_r로 출력하기위해 result 변수에 담음
 // $result = $stmt -> fetchAll(); select 할때 연상 배열 
 $conn -> commit(); // 커밋 
 
 print_r($result);
 
 // db 파기
-db_destroy_conn($conn);
+db_destroy_conn($conn); // $conn의 정보를 파기
+//-------------------------------------------------
 
 // SQL 2. 자신의 이름을 "둘리", 성을 "호이"로 변경해주세요.
 

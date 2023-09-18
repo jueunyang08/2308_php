@@ -15,5 +15,4 @@ echo "자식 클래스에서 출력";
 }
 
 $obj_child = new child();
-
-$obj_child->print_p();
+$obj_child -> print_p();

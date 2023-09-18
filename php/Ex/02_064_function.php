@@ -85,14 +85,28 @@
 
 // 1부터 무한 수 까지 입력한 값 더하기
 
-function add($i) {
-	$total = 0;
-	for($i;$i>0;$i--){
+// function add($i) {
+// 	$total = 0;
+// 	for($i;$i>0;$i--){
 
-	$total += $i;}
+// 	$total += $i;}
 
-	return $total;
+// 	return $total;
+// }
+// echo add(7);
+
+//  레퍼런스 파라미터
+
+function test1( $str ) {
+	$str = "함수 test1";
+	return $str;
 }
-echo add(7);
+function test2( &$str ) {
+	$str = "함수 test2";
+	return $str;
+}
 
-// 
+$str = "???";
+$result = test2($str);
+echo $str, "\n";
+echo $result;

@@ -37,7 +37,7 @@ my_db_conn($conn);
 
 // $stmt = $conn->prepare($sql);
 // $result = $stmt->execute($arr_ps); // print_r로 출력하기위해 result 변수에 담음
-// // $result = $stmt -> fetchAll(); select 할때 연상 배열 
+// // $result = $stmt >fetchAll(); select 할때 연상 배열 
 // $conn -> commit(); // 커밋 
 
 // print_r($result);
@@ -63,8 +63,8 @@ my_db_conn($conn);
 
 // $stmt = $conn->prepare($sql);
 // $result = $stmt->execute($arr_ps); // print_r로 출력하기위해 result 변수에 담음
-// // $result = $stmt -> fetchAll(); select 할때 연상 배열 
-// $conn -> commit(); // 커밋 
+// // $result = $stmt->fetchAll(); select 할때 연상 배열 
+// $conn->commit(); // 커밋 
 
 // print_r($result);
 
@@ -88,8 +88,8 @@ my_db_conn($conn);
 
 // $stmt = $conn->prepare($sql);
 // $result = $stmt->execute($arr_ps); // print_r로 출력하기위해 result 변수에 담음
-// $result = $stmt -> fetchAll(); //select 할때 연상 배열 
-// // $conn -> commit(); // 커밋 
+// $result = $stmt->fetchAll(); //select 할때 연상 배열 
+// // $conn->commit(); // 커밋 
 
 // print_r($result);
 
@@ -113,7 +113,7 @@ my_db_conn($conn);
 
 // $stmt = $conn->prepare($sql);
 // $result = $stmt->execute($arr_ps);
-// $conn -> commit();
+// $conn->commit();
 
 // db_destroy_conn($conn);
         

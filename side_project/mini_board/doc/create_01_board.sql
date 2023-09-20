@@ -1,0 +1,21 @@
+-- FLUSH PRIVILEGES;
+
+-- CREATE database mini_board;
+-- 
+-- USE mini_board;
+-- 
+
+CREATE TABLE board (
+b_no INT PRIMARY KEY AUTO_INCREMENT
+,
+title VARCHAR(100) NOT NULL
+,
+contents VARCHAR(500) NOT NULL
+,
+b_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+,
+del_flg CHAR(1) NOT NULL DEFAULT '0'
+,
+del_date DATETIME DEFAULT null
+
+);

@@ -30,11 +30,11 @@ print_r($result);
 db_destroy_conn($conn); // $conn의 정보를 파기
 
 db_conn($conn);
+
+//------------------------------------------------------------
 // 2. [1]번에 해당하는 사원의 직책 정보를 insert
 // 2-1. 직책은 "green", 시작일은 현재시간, 종료일은 99990101
 
-foreach ($result as $val) {
-  
 $sql = 
 " INSERT INTO ".
 " titles ".
@@ -45,16 +45,30 @@ $sql =
 " 99990101 ".
 ")";
 
+foreach ($result as $val) {
+
 $arr_ps = [
     ":title" => "green",
     ":emp" => $val["emp_no"]
 ];
 
- $stmt = $conn->prepare($sql);
+$stmt = $conn->prepare($sql);
 $result = $stmt->execute($arr_ps); // print_r로 출력하기위해 result 변수에 담음
 // $result = $stmt >fetchAll(); select 할때 연상 배열 
-$conn -> commit(); // 커밋 
+
+// if(!$result) {
+//     throw new Exception("insert Error");
+// }
 }
+$conn -> commit(); // 커밋 
+
+// catch (Exception $e) {
+//     $conn ->rollback();
+//     echo "ERROR : {$e ->getmessage()}"; //
+// }
+// finally {
+//     $conn = null; // DB파기
+// }
 
 // db 파기
 db_destroy_conn($conn); // $conn의 정보를 파기

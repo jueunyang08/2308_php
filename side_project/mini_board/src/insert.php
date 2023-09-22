@@ -3,6 +3,9 @@ define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/"); //웹서버
 define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
 require_once(ROOT. "lib/lib_db.php"); // DB 관련 라이브러리
 
+
+// GET 은 보안상 좋지않아 POST 로 통신 insert값을 보낸다
+
 //POST로 request가 왔을때 처리
 $http_method = $_SERVER["REQUEST_METHOD"];
 if($http_method === "POST") {
@@ -17,9 +20,12 @@ if($http_method === "POST") {
             // DB instance 에러
             throw new Exception("DB Error : PDO instance"); 
         }
+        //글작성은 > DB insert 기존에 있는 데이터를 삭제 업데이트 갱신 할때는 트랜잭션 시작
         $conn->beginTransaction(); // 트랜잭션 시작
 
         // insert
+
+        //정상적으로 처리가 되지 않을때 throw
         if(!db_insert_board($conn, $arr_post)) {
             throw new Exception("DB Error : Insert Boards"); 
         }

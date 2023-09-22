@@ -135,3 +135,32 @@ try {
     return false;  // 예외발생 : false 리턴
 }
 }
+
+
+function db_select_boards_b_no(&$conn, &$arr_param) {
+
+$sql = 
+" SELECT ".
+" b_no, title, contents, b_date ".
+" FROM ".
+" board ".
+" WHERE ".
+" b_no = :b_no";
+
+$arr_ps = [
+    ":b_no" => $arr_param["b_no"]
+];
+
+try {
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($arr_ps);
+    $result = $stmt->fetchAll();
+
+    return $result; // 정상 : 쿼리 결과 리턴
+}
+catch(Exception $e) {
+    echo $e->getMessage(); // Exception 
+    return false; // 예외발생 : false 리턴
+}
+}

@@ -72,7 +72,7 @@ if($http_method === "POST") {
             <textarea name="contents" id="contents" cols="50" rows="10" placeholder="내용을 입력하세요".></textarea>
         </li>
     </ul>
-    
+     
     <button type="submit"> 작성 </button>
     <a href="/mini_board/src/list.php"> 취소 </a>
 </form>

@@ -67,8 +67,8 @@ try {
             }
         }
 catch(Exception $e) {
-            // 예외 발생 메세지 (getMassege 메소드) 출력
-            echo $e->getMassege();
+            // 예외 발생 메세지 (getMessage 메소드) 출력
+            echo $e->getMessage();
             // 처리 종료
             exit; 
         }

@@ -90,50 +90,63 @@ finally {
     require_once(FILE_HEADER);
     ?>
     <main>
+        <section>
+            　
+        </section>
         <table>
             <colgroup>
             <col width="20%">
             <col width="50%">
             <col width="30%">
         </colgroup>
+        <section>
             <tr class="table-title">
-                <th> 번호</th>
+                <th> 번호 </th>
                 <th> 제목 </th>
                 <th> 작성일 </th>
             </tr>
+        </section>
             <?php
             // 리스트 생성
             foreach($result as $item) {
 
             ?>
-            <tr> 
+            <tr class="list_tr"> 
                 <td><?php echo $item["b_no"]; ?> </td>
-                <td> <a href="/mini_board/src/detail.php/?b_no=<?php echo $item["b_no"]; ?>&page=<?php echo $page_num; ?>"><?php echo $item["title"]; ?> </a> </td>
+                <td> <a class = "t_list" href="/mini_board/src/detail.php/?b_no=<?php echo $item["b_no"]; ?>&page=<?php echo $page_num; ?>"><?php echo $item["title"]; ?> </a> </td>
                 <td><?php echo $item["b_date"]; ?> </td>
             </tr>
            <?php } ?>
 
         </table>
+        <div>
 
-        <section class = write_section>
-        <!-- 글쓰기 버튼 -->
-        <a class = "write" href="/mini_board/src/insert.php">글쓰기</a>
-        </section>
-      
-        <section class = page_section>
+        <section class = "page_section">
+            <!-- 글쓰기 버튼 -->
+           <button type = "button" class = "button_wr" onclick="location.href='/mini_board/src/insert.php'">💡</button>
             <!-- 이전 페이지 버튼 -->
-            <a class = "page_button" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><</a>
+            <a class = "page_prev_button" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><</a>
             <!-- $i=1, 1이 증가하면서 최대 페이지수까지만 반복 -->
             <?php
             for($i = 1; $i <= $max_page_num; $i++) {
+
+
+            // 현재 페이지에 활성화
+            if ((int)$page_num === $i) {
             ?>
-            <!-- a : 총 페이지 수 표시 버튼 -->
-            <a class = "page_button" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+             <!-- a : 페이지 표시 버튼 -->
+            <a class="act_bbg" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+            <?php
+            } else {
+            ?>
+            <a class="bbg" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
             <?php
             }
+            }
+         
             ?>
             <!-- 다음 페이지 버튼 -->
-            <a class = "page_button" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">></a>
+            <a class = "page_next_button" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">></a>
         </section>
     </main>
 

@@ -64,12 +64,12 @@ if($http_method === "POST") {
     <ul>
         <li>
             <label for="title">제목</label>
-             <input type="text" name="title" id = title size = 48>
+             <input type="text" name="title" id = title size = 48 placeholder="제목을 입력하세요" required>
         </li>
 
         <li>
              <label for="contents">내용</label>
-            <textarea name="contents" id="contents" cols="50" rows="10" placeholder="내용을 입력하세요".></textarea>
+            <textarea name="contents" id="contents" cols="50" rows="10" placeholder="내용을 입력하세요" required></textarea>
         </li>
     </ul>
      

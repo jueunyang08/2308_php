@@ -73,23 +73,29 @@ $input_b_no = $_GET["b_no"];
 <?php
     require_once(FILE_HEADER);
     ?>
+<div class = detail_main>
 <table>
+<colgroup>
+            <col width="20%">
+            <col width="50%">
+        </colgroup>
     <tr>
-        <th>글 번호</th>
-        <td><?php echo $item["b_no"]; ?></td>
+        <th height="50">글 번호</th>
+        <td class="detail_no"><?php echo $item["b_no"]; ?></td>
         <th>작성일</th>
         <td><?php echo $item["b_date"]; ?></td>
 </tr>
 
     <tr>
-        <th>제목</th>
-        <td><?php echo $item["title"]; ?></td>
+        <th height="50">제목</th>
+        <td class="detail_title" colspan='3'><?php echo $item["title"]; ?></td>
     </tr>
     <tr>
         <th>내용</th>
-        <td><?php echo $item["contents"]; ?></td>
+        <td class="detail_contents" colspan='3' width="600"><?php echo $item["contents"]; ?></td>
     </tr>
     </table>
+</div>
     <a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>"> 뒤로 </a>
     <a href=""#>수정</a>
     <a href=""#>삭제</a>

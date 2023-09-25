@@ -3,7 +3,7 @@
 function db_conn( &$conn ) { //레퍼런스 파라미터 
     $db_host = "localhost";
     $db_user = "root";
-    $db_pw = "1234";
+    $db_pw = "php504";
     $db_db_name = "mini_board";
     $db_charset = "utf8mb4";
     $db_dns = "mysql:host=".$db_host.";dbname=".$db_db_name.";charset=".$db_charset;

@@ -1,0 +1,40 @@
+header {
+    width: 100%;
+    height: 80px;
+    background-color: black;
+}
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+.h {
+    line-height: 80px;
+    color: white;
+}
+a {
+    text-decoration: none;
+}
+
+/* 글쓰기 버튼 */
+.write {
+
+    width: 45px;
+    height: 25px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+.page_prev_button, .page_num, .page_next_button {
+    display: inline-block;
+    margin: auto;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    background-color: white;
+    border: 2px solid #000;
+}

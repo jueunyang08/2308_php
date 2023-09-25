@@ -7,7 +7,7 @@ require_once(ROOT. "lib/lib_db.php"); // DB 관련 라이브러리
 // GET 은 보안상 좋지않아 POST 로 통신 insert값을 보낸다
 
 //POST로 request가 왔을때 처리
-$http_method = $_SERVER["REQUEST_METHOD"];
+$http_method = $_SERVER["REQUEST_METHOD"]; //Method 확인
 if($http_method === "POST") {
     try {
         $arr_post = $_POST;

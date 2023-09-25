@@ -164,3 +164,41 @@ catch(Exception $e) {
     return false; // 예외발생 : false 리턴
 }
 }
+
+    // ------------------------------------
+    // 함수명        : db_update_boards_b_no
+    // 기능          : board 레코드 수정
+    // 파라미터      : PDO    &$conn
+    //               : Array  &$arr_param 쿼리 작성용 배열
+    // 리턴          : boolean
+    // ------------------------------------
+    function db_update_boards_b_no(&$conn, &$arr_param) {
+
+$sql = 
+" UPDATE ".
+" board ".
+" SET ".
+" title = :title, ".
+" contents = :contents ".
+" WHERE ".
+" b_no = :b_no " ;
+
+$arr_ps = [
+    ":b_no" => $arr_param["b_no"],
+    ":title" => $arr_param["title"],
+    ":contents" => $arr_param["contents"]
+];
+
+try {
+
+    $stmt = $conn->prepare($sql);
+    $result = $stmt->execute($arr_ps);
+
+    return $result; // 정상 : 쿼리 결과 리턴
+}
+catch(Exception $e) {
+    echo $e->getMessage(); // Exception 
+    return false; // 예외발생 : false 리턴
+}
+
+}

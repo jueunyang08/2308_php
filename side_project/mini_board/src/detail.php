@@ -3,7 +3,9 @@ define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/"); //웹서버
 define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
 require_once(ROOT. "lib/lib_db.php"); // DB 관련 라이브러리
 
-$conn = null;
+// $id = ""; // 게시글 id
+$conn = null; // DB Connect
+
 $page_num = $_GET["page"];
 try {
 
@@ -97,8 +99,8 @@ $input_b_no = $_GET["b_no"];
     </table>
 </div>
     <a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>"> 뒤로 </a>
-    <a href=""#>수정</a>
-    <a href=""#>삭제</a>
+    <a href="/mini_board/src/update.php/?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>"> 수정하기 </a>
+    <a href=""> 삭제 </a>
    
 
 </body>

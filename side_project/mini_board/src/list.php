@@ -89,7 +89,7 @@ finally {
     <?php
     require_once(FILE_HEADER);
     ?>
-    <main>
+    <main class="list_main">
         <section>
             　
         </section>

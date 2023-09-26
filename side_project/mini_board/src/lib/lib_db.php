@@ -53,6 +53,8 @@ function db_conn( &$conn ) { //레퍼런스 파라미터
         ."      ,b_date "
         ." FROM "
         ."      board "
+        ." where "
+        ." delete_fla = '0' "
         ." ORDER BY "
         ."      b_no DESC "
         ." LIMIT :list_cnt "
@@ -91,7 +93,9 @@ function db_select_board_cnt(&$conn) {
     " SELECT ".
     " count(b_no) cnt ".
     " FROM ".
-    " board ";
+    " board ".
+    " WHERE ".
+    " delete_fla = '0' ";
 
     try {
         $stmt = $conn->query($sql);
@@ -145,7 +149,9 @@ $sql =
 " FROM ".
 " board ".
 " WHERE ".
-" b_no = :b_no";
+" b_no = :b_no".
+" AND ".
+" delete_fla = '0' ";
 
 $arr_ps = [
     ":b_no" => $arr_param["b_no"]
@@ -201,4 +207,37 @@ catch(Exception $e) {
     return false; // 예외발생 : false 리턴
 }
 
+}
+
+    // ------------------------------------
+    // 함수명        : db_delete_boards_b_no
+    // 기능          : board  특정 ID의 레코드 삭제 처리
+    // 파라미터      : PDO    &$conn
+    //               : Array  &$arr_param 쿼리 작성용 배열
+    // 리턴          : boolean
+    // ------------------------------------
+function db_delete_boards_b_no(&$conn, &$arr_param) {
+    $sql =
+    " UPDATE board ".
+    " SET ".
+    " delete_at = now() ".
+    " ,delete_fla = '1' ".
+    " where ".
+    " b_no = :b_no "
+    ;
+    $arr_ps = [
+        ":b_no" => $arr_param["b_no"]
+    ];
+
+    try {
+
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute($arr_ps);
+    
+        return $result; // 정상 : 쿼리 결과 리턴
+    }
+    catch(Exception $e) {
+        echo $e->getMessage(); // Exception 
+        return false; // 예외발생 : false 리턴
+    }
 }

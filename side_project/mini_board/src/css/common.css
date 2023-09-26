@@ -28,7 +28,7 @@ header>h1 {
     color: #ffffff;
 }
 /* main BG */
-main {
+.list_main {
     margin: 30px auto;
     width: 1000px;
     height: 570px;
@@ -140,7 +140,7 @@ a {
 }
 
 /* -------------------------------------------------- */
-.detail_main {
+.detail_main, .delete_main {
     margin: 60px auto;
 
     width: 800px;

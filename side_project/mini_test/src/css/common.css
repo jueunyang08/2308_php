@@ -27,7 +27,9 @@ a {
 
     font-weight: bold;
 }
-.page_prev_button, .page_num, .page_next_button {
+/* 페이지 버튼 */
+.page_prev_button, .bbg, .page_next_button {
+    box-sizing: border-box;
     display: inline-block;
     margin: auto;
 
@@ -37,4 +39,57 @@ a {
 
     background-color: white;
     border: 2px solid #000;
+    color: #000;
+
+    text-align: center;
+    line-height: 30px;
 }
+/* 페이지 버튼 섹션 중앙 정렬 */
+.page_buttons_section {
+    width: 100%;
+    text-align: center;
+}
+/* list 글번호 CSS */
+.w_no {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    background-color: black;
+    color: white;
+
+    text-align: center;
+    line-height: 30px;
+}
+.act_bbg {
+    box-sizing: border-box;
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    background-color: rgb(0, 0, 0);
+    color: white;
+
+    text-align: center;
+    line-height: 30px;
+}
+
+table, tr, td {
+text-align: center;
+    margin: 0 auto;
+    border-collapse: collapse;
+
+  
+}
+.title_align, .b_date_align {
+    border-bottom: #000 3px solid;
+}
+.title_align {
+    text-align: left;
+}
+/* .title_align, .b_date_align {
+    border-collapse: collapse;
+} */

@@ -13,11 +13,20 @@ h1 {
 }
 a {
     text-decoration: none;
+    text-align: center;
 }
 
+/* 페이지 버튼 섹션 중앙 정렬 */
+.page_buttons_section {
+    width: 700px;
+    text-align: center;
+    margin: 0 auto;
+
+    margin-top: 40px;
+}
 /* 글쓰기 버튼 */
 .write {
-
+    float: right;
     width: 45px;
     height: 25px;
     background-color: black;
@@ -44,11 +53,22 @@ a {
     text-align: center;
     line-height: 30px;
 }
-/* 페이지 버튼 섹션 중앙 정렬 */
-.page_buttons_section {
-    width: 100%;
+.act_bbg {
+    box-sizing: border-box;
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #000;
+
+    background-color: rgb(0, 0, 0);
+    color: white;
+
     text-align: center;
+    line-height: 30px;
 }
+
 /* list 글번호 CSS */
 .w_no {
     display: inline-block;
@@ -61,35 +81,33 @@ a {
 
     text-align: center;
     line-height: 30px;
+
 }
-.act_bbg {
-    box-sizing: border-box;
-    display: inline-block;
 
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-
-    background-color: rgb(0, 0, 0);
-    color: white;
-
-    text-align: center;
-    line-height: 30px;
-}
 
 table, tr, td {
-text-align: center;
+    text-align: center;
     margin: 0 auto;
     border-collapse: collapse;
-
-  
 }
 .title_align, .b_date_align {
     border-bottom: #000 3px solid;
 }
+/* 제목 class */
 .title_align {
     text-align: left;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
-/* .title_align, .b_date_align {
-    border-collapse: collapse;
-} */
+.b_date_align {
+    color: rgb(190, 190, 190);
+    text-align: right;
+}
+table {
+    margin-top: 30px;
+    width: 700px;
+}
+td {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

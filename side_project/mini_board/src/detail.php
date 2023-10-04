@@ -98,10 +98,12 @@ $input_b_no = $_GET["b_no"];
     </tr>
     </table>
 </div>
-    <a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>"> 뒤로 </a>
-    <a href="/mini_board/src/update.php/?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>"> 수정하기 </a>
-    <a href="/mini_board/src/delete.php?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>"> 삭제 </a>
-   
+    <section class= "detail_section">
+    <a class ="detail_button_back" href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>"> 뒤로 </a>
+    
+    <a class ="detail_button_del" href="/mini_board/src/delete.php?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>"> 삭제 </a>
+    <a class ="detail_button_update" href="/mini_board/src/update.php/?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>"> 수정 </a>
+    </section>
 
 </body>
 </html>

@@ -54,7 +54,7 @@ function db_conn( &$conn ) { //레퍼런스 파라미터
         ." FROM "
         ."      board "
         ." where "
-        ." delete_fla = '0' "
+        ." del_flg = '0' "
         ." ORDER BY "
         ."      b_no DESC "
         ." LIMIT :list_cnt "
@@ -95,7 +95,7 @@ function db_select_board_cnt(&$conn) {
     " FROM ".
     " board ".
     " WHERE ".
-    " delete_fla = '0' ";
+    " del_flg = '0' ";
 
     try {
         $stmt = $conn->query($sql);
@@ -151,7 +151,7 @@ $sql =
 " WHERE ".
 " b_no = :b_no".
 " AND ".
-" delete_fla = '0' ";
+" del_flg = '0' ";
 
 $arr_ps = [
     ":b_no" => $arr_param["b_no"]
@@ -221,7 +221,7 @@ function db_delete_boards_b_no(&$conn, &$arr_param) {
     " UPDATE board ".
     " SET ".
     " delete_at = now() ".
-    " ,delete_fla = '1' ".
+    " ,del_flg = '1' ".
     " where ".
     " b_no = :b_no "
     ;

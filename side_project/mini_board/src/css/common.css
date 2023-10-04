@@ -160,3 +160,53 @@ a {
 .detail_no, .detail_title, .detail_contents {
     padding: 30px;
 }
+/* 상세 페이지 버튼 섹션 */
+.detail_section {
+    margin: auto;
+    width: 800px;
+    height: 360px;
+}
+.detail_button_back, .detail_button_del, .detail_button_update, .update_button_x, .update_button_o {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f6c76a;
+}
+.detail_section>a{
+    /* color: black; */
+    text-align: center;
+    line-height: 40px;
+    font-size: 0.9rem;
+}
+.detail_button_back {
+    float: left;
+    color: black;
+}
+.detail_button_del {
+    float: left;
+    margin-left: 20px;
+    color: rgba(230, 42, 42, 0.753);
+}
+.detail_button_update {
+    float: right;
+    color: black;
+}
+
+textarea {
+    resize: none;
+    vertical-align: top;
+}
+.update_button_x {
+    float: right;
+    margin-right: 20px;
+
+    border: none;
+}
+.update_button_x>a {
+    color: rgba(230, 42, 42, 0.753);
+}
+.update_button_o {
+    float: right;
+    
+    border: none;
+}

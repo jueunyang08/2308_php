@@ -100,7 +100,7 @@ finally {
     <tr>
         <th height="50">제목</th>
         <td class="detail_title">
-        <input type ="text" name = "title" value="<?php echo $item["title"] ?>">
+        <input type ="text" size = "51" name = "title" value="<?php echo $item["title"] ?>">
         </td>
     </tr>
     <tr>
@@ -110,11 +110,13 @@ finally {
         </td>
     </tr>
     </table>
+    <section class="update_section">
     
-    <button type="submit"> 수정확인 </button>
-    <a href="/mini_board/src/detail.php/?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>"> 수정취소 </a>
+    <button class="update_button_o" type="submit"> 수정확인 </button>  
+    <button class="update_button_x"><a  href="/mini_board/src/detail.php/?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>"> 수정취소 </a></button>
+      
+    </section>
     </form>
 </div>
-
 </body>
 </html>

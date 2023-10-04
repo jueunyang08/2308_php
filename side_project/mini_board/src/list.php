@@ -123,7 +123,7 @@ finally {
 
         <section class = "page_section">
             <!-- 글쓰기 버튼 -->
-           <button style="cursor: pointer"type = "button" class = "button_wr" onclick="location.href='/mini_board/src/insert.php'">💡</button>
+           <button type = "button" class = "button_wr cursor" onclick="location.href='/mini_board/src/insert.php'">💡</button>
             <!-- 이전 페이지 버튼 -->
             <a class = "page_prev_button" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><</a>
             <!-- $i=1, 1이 증가하면서 최대 페이지수까지만 반복 -->

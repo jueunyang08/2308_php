@@ -3,7 +3,7 @@
 function db_conn( &$conn ) { //레퍼런스 파라미터 
     $db_host = "localhost";
     $db_user = "root";
-    $db_pw = "php504";
+    $db_pw = "1234";
     $db_db_name = "mini_board";
     $db_charset = "utf8mb4";
     $db_dns = "mysql:host=".$db_host.";dbname=".$db_db_name.";charset=".$db_charset;
@@ -220,7 +220,7 @@ function db_delete_boards_b_no(&$conn, &$arr_param) {
     $sql =
     " UPDATE board ".
     " SET ".
-    " delete_at = now() ".
+    " del_date = now() ".
     " ,del_flg = '1' ".
     " where ".
     " b_no = :b_no "

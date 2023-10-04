@@ -100,13 +100,14 @@ finally {
      require_once(FILE_HEADER);
     ?>
     <div class = delete_main>
-            <table>
-                <caption> 삭제하면 영구적으로 복구 할 수 없습니다. <br>
-            정말로 삭제하시겠습니까?
+        <p>삭제하면 영구적으로 복구 할 수 없습니다.</p>
+        <p>정말로 <span class=red>삭제</span>하시겠습니까?</p>
+            <!-- <table>
+                <caption> 
             <br>
             <br>
-            </caption>
-            <tr>
+            </caption> -->
+            <!-- <tr>
                 <th>게시글 번호</th>
                 <td><?php echo $item["b_no"] ?></td>
             </tr>
@@ -123,14 +124,15 @@ finally {
             <tr>
                 <th>내용</th>
                 <td><?php echo $item["contents"] ?></td>
-            </tr>
-            </table>
+            </tr> -->
+            <!-- </table> -->
         </div class = delete_main>
         <section>
             <form action="/mini_board/src/delete.php" method="post">
                 <input type="hidden" name="b_no" value="<?php echo $b_no; ?>">
-                <button type="submit">동의</button>
-                <a href="/mini_board/src/detail.php/?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>">취소</a>
+                
+                <button class=delete_button><a class=cancel_button href="/mini_board/src/detail.php/?b_no=<?php echo $b_no; ?>&page=<?php echo $page_num; ?>">취소</a></button>
+                <button class="red delete_button cursor" type="submit">삭제</button>
             </form>
         </section>
 </body>

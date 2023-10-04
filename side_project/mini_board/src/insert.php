@@ -61,10 +61,11 @@ if($http_method === "POST") {
     ?>
     
     <form action="/mini_board/src/insert.php" method="post">
+    <div class=detail_main>
     <ul>
         <li>
             <label for="title">제목</label>
-             <input type="text" name="title" id = title size = 48 placeholder="제목을 입력하세요" required>
+             <input class="" type="text" name="title" id = title size = 51 placeholder="제목을 입력하세요" required>
         </li>
 
         <li>
@@ -72,10 +73,12 @@ if($http_method === "POST") {
             <textarea name="contents" id="contents" cols="50" rows="10" placeholder="내용을 입력하세요" required></textarea>
         </li>
     </ul>
-     
-    <button type="submit"> 작성 </button>
-    <a href="/mini_board/src/list.php"> 취소 </a>
+</div>
+<section>
+<button class="delete_button"><a class="gray" href="/mini_board/src/list.php"> 취소 </a></button>
+<button class ="delete_button cursor"type="submit"> 작성 </button>
+    
+</section>
 </form>
-
 </body>
 </html>

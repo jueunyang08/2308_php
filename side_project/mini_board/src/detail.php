@@ -51,7 +51,8 @@ try {
 
 }
 catch (Exception $e) {
-    echo $e->getMessage();
+    // echo $e->getMessage();
+    header("Location: error.php/?err_msg={$e->getmessage()}"); // error 메세지 출력 (error.php)
     exit;
 }
 

@@ -75,7 +75,8 @@ catch(Exception $e) {
     if($http_method === "POST") {
         $conn->rollback();
     }
-    echo $e->getMessage(); // 에러 메세지 출력
+    // echo $e->getMessage(); // 에러 메세지 출력
+    header("Location: error.php/?err_msg={$e->getmessage()}"); // error 메세지 출력 (error.php)
     exit; // 처리종료
 }
 finally {

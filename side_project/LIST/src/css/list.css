@@ -1,0 +1,12 @@
+.bg {
+    background-color: #5A748B;
+    width: 100vw;
+    height: 100vh;
+};
+
+.main_div {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    background-color: #000;
+};

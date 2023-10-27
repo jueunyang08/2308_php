@@ -47,3 +47,5 @@ function R() {
     DIV1.addEventListener('mouseenter', DGDG);
     DIV1.addEventListener('click', DKD)
 };
+
+

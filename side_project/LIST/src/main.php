@@ -17,10 +17,12 @@ require_once(ROOT. "lib/lib_db.php"); // DB 관련 라이브러리
     <link rel="stylesheet" href="/LIST/src/css/list.css">
 </head>
 <body>
-    <main class="bg">
-<div class ="main_div">
-    ddfdfdfdfdfd
-</div>
-    </main>
+<main>
+    <div class= 'main_div center'>
+        <div class='main_header'>
+            <button class='btn_insert'>+</button>
+        </div>
+    </div>
+</main>
 </body>
 </html>

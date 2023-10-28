@@ -1,29 +1,141 @@
-/* .bg {
-    background-color: #5A748B;
-    width: 100vw;
-    height: 100vh;
-}; */
 body {
     background-color: #5A748B;
 }
+/* 공통 영역 */
 .main_div {
-/* center */
+    /* 중앙정렬 */
     position: absolute; 
     left: 50%; 
     top: 50%; 
     transform: translate(-50%, -50%);
 
-/* CSS */
+    /* CSS */
     width: 600px;
     height: 700px;
     background-color: white;
     border-radius: 20px 20px 70px 70px;
 }
+/* 헤더파일 */
 
-.main_header {
-    width: 100%;
-    height: 130px;
-    background-color: #FF7979;
-}
-/* 인서트 버튼 */
+    /* 헤더 */
+    .main_header {
+        width: 100%;
+        height: 130px;
+        background-color: #FF7979;
+    }
+    /* 인서트 버튼 */
+    .btn_insert {
+        width: 70px;
+        height: 70px;
+        border: none;
+        border-radius: 5px;
+        float: right;
+        margin-right: 20px;
+        margin-top: 40px;
+    }
+    .plus {
+        font-size: 50px;
+        font-weight: bold;
+        color: #FF7979;
+    }
+    .cursor {
+    cursor: pointer;
+    }
+
+/* 메인 page CSS */
+
+    /* LIST 영역 */
+        .main_page_list_section {
+            width: 500px;
+            height: 300px;
+            margin: auto;
+        }
+        /* TO DO LIST */
+        .TODOLIST {
+            margin: 30px;
+            font-size: 50px;
+            font-weight: bold;
+            color: #FF7979;
+            text-align: center;
+        }
+        /* LIST */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 65px;
+            line-height: 20px;
+        }
+        .bullet {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #FF7979;
+            margin-right: 10px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+        .border_line {
+            width: 500px;
+            height: 10px;
+            background-color: #FF7979;
+            margin-top: 13px;
+        }
+        .num {
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 25px;
+        }
+        .list_name {
+            font-weight: bold;
+            font-size: 25px;
+            color: rgb(44, 44, 44);
+            margin-left: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 400px;
+            display: inline-block;
+        }
+    /* 페이지 아래 영역 */
+        .page_footer_section {
+            width: 500px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        /* 이전 버튼 CSS */
+        .prev_btn {
+            background-color: #FF7979;
+            border: none;
+            background-image: url("../../doc/icon_left.png");
+            background-repeat: no-repeat;
+            background-size:14px;
+            display: inline-block;
+            background-position: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+        }
+        /* 다음 버튼 CSS */
+        .next_btn {
+            background-color: #FF7979;
+            border: none;
+            background-image: url("../../doc/icon_right.png");
+            background-repeat: no-repeat;
+            background-size:14px;
+            display: inline-block;
+            background-position: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+        }
+        .footer_position {
+            margin-top: 40px;
+        }
+
 

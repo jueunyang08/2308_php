@@ -1,5 +1,23 @@
+@font-face {
+    font-family: 'TAEBAEKfont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/TAEBAEKfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'TAEBAEKfont';
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: #5A748B;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-use-select: none;
+    user-select: none;
 }
 /* 공통 영역 */
 .main_div {
@@ -32,15 +50,23 @@ body {
         float: right;
         margin-right: 20px;
         margin-top: 40px;
+        background-color: white;
     }
     .plus {
         font-size: 50px;
         font-weight: bold;
         color: #FF7979;
+        line-height: 35px;
     }
     .cursor {
     cursor: pointer;
     }
+/* 공통 content_section */
+.content_section {
+    width: 500px;
+    height: 415px;
+    margin: auto;
+}
 
 /* 메인 page CSS */
 
@@ -53,8 +79,8 @@ body {
         /* TO DO LIST */
         .TODOLIST {
             margin: 30px;
-            font-size: 50px;
-            font-weight: bold;
+            font-size: 45px;
+            font-weight: 40px;
             color: #FF7979;
             text-align: center;
         }
@@ -63,8 +89,12 @@ body {
             list-style: none;
             padding: 0;
         }
+        .li_div {
+            width: 500px;
+            height: 65px;
+            margin-bottom: 40px;
+        }
         li {
-            margin-bottom: 65px;
             line-height: 20px;
         }
         .bullet {
@@ -87,55 +117,117 @@ body {
             margin: 0 auto;
             text-align: center;
             color: white;
-            font-weight: bold;
+            font-weight: 30px;
             font-size: 22px;
-            line-height: 25px;
+            line-height: 32px;
         }
-        .list_name {
-            font-weight: bold;
-            font-size: 25px;
+        .list_title {
+            font-weight: 20px;
+            font-size: 23px;
             color: rgb(44, 44, 44);
             margin-left: 10px;
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
-            width: 400px;
+            width: 450px;
+            height: 30px;
             display: inline-block;
+            line-height: 30px;
+            vertical-align: middle;
         }
-    /* 페이지 아래 영역 */
-        .page_footer_section {
-            width: 500px;
-            height: 100px;
-            margin: 0 auto;
-        }
-        /* 이전 버튼 CSS */
-        .prev_btn {
-            background-color: #FF7979;
-            border: none;
-            background-image: url("../../doc/icon_left.png");
-            background-repeat: no-repeat;
-            background-size:14px;
-            display: inline-block;
-            background-position: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 3px;
-        }
-        /* 다음 버튼 CSS */
-        .next_btn {
-            background-color: #FF7979;
-            border: none;
-            background-image: url("../../doc/icon_right.png");
-            background-repeat: no-repeat;
-            background-size:14px;
-            display: inline-block;
-            background-position: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 3px;
-        }
+/* 페이지 푸터 영역 */
+    .page_footer_section {
+        width: 500px;
+        height: 100px;
+        margin: 0 auto;
+    }
+        /* 푸터 - 버튼 위치조정 class */
         .footer_position {
             margin-top: 40px;
         }
+        /* 버튼 CSS */
+        .btn_CSS {
+            background-color: #FF7979;
+            border: 1px solid #FF7979;
+            background-repeat: no-repeat;
+            background-size:14px;
+            display: inline-block;
+            background-position: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+        }
+        /* 비활성화 된 버튼 CSS */
+        .off_btn_CSS {
+            background-color: #ffffff;
+            border: 1px solid #FF7979;
+            background-repeat: no-repeat;
+            background-size:14px;
+            display: inline-block;
+            background-position: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+            
+        }
+        /* main.php */
+
+            /* 이전 버튼 CSS */
+            .prev_btn {
+                background-image: url("../../doc/icon_left.png");
+            }
+            /* 다음 버튼 CSS */
+            .next_btn {
+                background-image: url("../../doc/icon_right.png");
+                float: right;
+            }
+            /* 페이지 넘버 버튼 CSS */
+            a {
+                display: inline-block;
+                text-decoration: none;
+            }
+            .text_CSS {
+                color: white;
+                font-weight: 30px;
+                font-size: 20px;
+                text-align: center;
+                line-height: 40px;
+            }
+            .off_text_CSS {
+                color: #FF7979;
+                font-weight: 30px;
+                font-size: 20px;
+                text-align: center;
+                line-height: 40px;
+            }
+            .pagenum_section {
+                display: inline-block;
+                /* 중앙 정렬 */
+                position: fixed;
+                left: 50%;
+                transform: translateX( -50% );
+            }
+        /* insert.php */
+            /* 취소.작성 버튼 */
+            .c_w_btn {
+                background-color: #FF7979;
+                border: none;
+                background-repeat: no-repeat;
+                background-size:14px;
+                display: inline-block;
+                background-position: center;
+                width: 60px;
+                height: 40px;
+                border-radius: 3px;
+
+                color: white;
+                font-weight: 30px;
+                font-size: 20px;
+            }
+            /* 작성 버튼 float: right */
+            .w_btn {
+                float: right;
+            }
+
 
 

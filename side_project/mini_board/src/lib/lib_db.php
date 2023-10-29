@@ -104,7 +104,6 @@ function db_select_board_cnt(&$conn) {
     }
     catch(Exception $e) {
         return false; // 예외발생 : false 리턴
-
     }
 }
     // ------------------------------------

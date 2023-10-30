@@ -228,6 +228,27 @@ body {
             .w_btn {
                 float: right;
             }
+            /* insert-contents */
+            .content_section {
+                padding-top: 30px;
+            }
+            .insert_title {
+                /* padding-left: 20px; */
+                width: 500px;
+                height: 70px;
+                background-color: #E1E1E1;
+                border-radius: 15px;
+                border: none;
+            }
+            .w_title {
+                line-height: 70px;
+                font-size: 30px;
+                color: #FF7979
+            }
+            input:focus {
+                outline: 5px solid #FF7979;
+            }
+
 
 
 

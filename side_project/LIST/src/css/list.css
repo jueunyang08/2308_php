@@ -264,6 +264,20 @@ body {
                 padding: 15px;
                 resize: none;
             }
+            .text_limit {
+                font-size: 13px;
+                color: #d1d1d1;
+                margin-top: 5px;
+                margin-left: 460px;
+                display: inline-block;
+            }
+            sup {
+                margin-top: 5px;
+                margin-left: 400px;
+                color: #acacac;
+                display: inline-block;
+            }
+
 
 
 

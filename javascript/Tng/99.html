@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            width: 100%;
+            height: 130px;
+            color: white;
+            background-color: black;
+            text-align: center;
+            font-size: 50px;
+            line-height: 130px;
+        }
+        .center {
+            width: 500px;
+            height: 30px;
+            margin: 0 auto;
+        }
+        #div-img {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            width: 80%;
+            margin: 50px auto;
+            grid-gap: 10px;
+
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        API 실습
+    </header>
+
+    <div class="center">
+    <input id="input-url" type="text" style="width: 500px; margin-bottom: 5px;"><br>
+    <button id = 'btn-api'>API 호출</button>
+    <button id ='btn-clear'>지우기</button>
+    </div>
+
+    <div id="div-img"></div>
+
+    <script src="99.js"></script>
+</body>
+</html>

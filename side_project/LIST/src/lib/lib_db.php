@@ -3,7 +3,8 @@
 function db_conn(&$conn) {
     $db_host = "localhost";
     $db_user ="root";
-    $db_pw ="php504";
+      // $db_pw = "php504";
+      $db_pw = "1234";
     $db_db_name = "list";
     $db_charset ="utf8mb4";
     $db_dns = "mysql:host=".$db_host.";dbname=".$db_db_name.";charset=".$db_charset;
@@ -96,15 +97,15 @@ function db_conn(&$conn) {
 
     // insert 
 
-    function db_insert(&$conn, &$arr_param) {
-        $sql = 
-        " INSERT INTO list_table (
-                        l_no, 
-                        title, 
-                        contents
-                        ) 
-        VALUE 
-        (9, '제목', '내용내용');
+    // function db_insert(&$conn, &$arr_param) {
+    //     $sql = 
+    //     " INSERT INTO list_table (
+    //                     l_no, 
+    //                     title, 
+    //                     contents
+    //                     ) 
+    //     VALUE 
+    //     (9, '제목', '내용내용');
 
 
-    }
+    // }

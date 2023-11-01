@@ -92,4 +92,19 @@ function db_conn(&$conn) {
         catch(Exception $e) {
             return false; // 예외발생 : false 리턴
         }
-    } 
+    }
+
+    // insert 
+
+    function db_insert(&$conn, &$arr_param) {
+        $sql = 
+        " INSERT INTO list_table (
+                        l_no, 
+                        title, 
+                        contents
+                        ) 
+        VALUE 
+        (9, '제목', '내용내용');
+
+
+    }

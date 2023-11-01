@@ -1,6 +1,6 @@
 //textarea 바이트 수 체크하는 함수
 function fn_checkByte(obj){
-    const maxByte = 300; //최대 100바이트
+    const maxByte = 300; //최대 바이트
     const text_val = obj.value; //입력한 문자
     const text_len = text_val.length; //입력한 문자수
     

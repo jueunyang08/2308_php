@@ -109,3 +109,22 @@ function my_delete() {
 //    DIV_IMG.innerHTML = "";
 
 }
+
+// fetch 두번째 아규먼트 셋팅방법
+function infinityLoop() {
+    let apiurl = "http://112.222.157.156:6001/03_insert.php"
+    let init = {
+        method: 'post' // 메소드 설정하는 방법 (key(메소드) : value(값))
+        ,headers: {
+
+        }
+        ,body: {
+            title: "아아아아"
+            ,content: "내요ㅛㅛㅇㅇㅇㅇ"
+            ,em_id: ""
+        }
+    }
+    fetch(apiurl, init)
+    .then(reponse => console.log(response))
+    .catch(error => console.log(error));
+}

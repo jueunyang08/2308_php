@@ -2,6 +2,35 @@
 define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/LIST/src/"); //웹서버
 define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
 require_once(ROOT. "lib/lib_db.php"); // DB 관련 라이브러리
+
+// DB connect
+$conn = null;
+
+// GET은 보안상 좋지않아 POST로 통신 insert값을 보낸다.
+
+// POST로 request가 왔을때 처리
+$http_method = $_SERVER["REQUEST_METHOD"]; // Method 확인
+
+if($http_method === "POST") {
+    try {
+        // 파라미터 획득
+
+         // DB 접속
+         if (!db_conn($conn)) {
+            // DB instance 에러
+            throw new Exception("DB Error : PDO instance"); 
+        }
+        
+    }
+
+    catch(Exception $e) {
+
+    }
+    finally {
+        db_destroy_conn($conn); //DB 파기
+    }
+}
+
 ?>
 
 <!DOCTYPE html>

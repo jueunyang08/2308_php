@@ -184,14 +184,14 @@ body {
             /* 수정 버튼 img */
             .update_btn {
                 background-image: url("../../doc/icon_pencil.png");
-                background-size: 50%;
+                background-size: 60%;
                 float: right;
                 margin-left: 10px;
             }
             /* 삭제 버튼 img */
             .delete_btn {
                 background-image: url("../../doc/icon_trash.png");
-                background-size: 50%;
+                background-size: 60%;
                 float: right;
             }
             /* 페이지 넘버 버튼 CSS */
@@ -309,11 +309,12 @@ body {
                 line-height: 50px;
                 vertical-align: middle;
                 border-radius: 3px;
+                font-size: 20px;
             }
             /* 제목 CSS */
             .detail_title {
                 line-height: 70px;
-                margin-left: 5px;
+                margin-left: 10px;
                 display: inline-block;
                 color: #FF7979;
                 font-size: 25px;

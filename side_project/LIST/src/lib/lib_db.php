@@ -3,8 +3,8 @@
 function db_conn(&$conn) {
     $db_host = "localhost";
     $db_user ="root";
-      // $db_pw = "php504";
-      $db_pw = "1234";
+      $db_pw = "php504";
+    //   $db_pw = "1234";
     $db_db_name = "list";
     $db_charset ="utf8mb4";
     $db_dns = "mysql:host=".$db_host.";dbname=".$db_db_name.";charset=".$db_charset;
@@ -97,15 +97,56 @@ function db_conn(&$conn) {
 
     // insert 
 
-    // function db_insert(&$conn, &$arr_param) {
-    //     $sql = 
-    //     " INSERT INTO list_table (
-    //                     l_no, 
-    //                     title, 
-    //                     contents
-    //                     ) 
-    //     VALUE 
-    //     (9, '제목', '내용내용');
+    function db_insert(&$conn, &$arr_param) {
+        $sql = 
+        "INSERT INTO list_table
+        (title, contents) 
+        VALUE (:title, :contents) ";
+
+        $arr_ps = [
+            ":title" => $arr_param["title"],
+            ":contents" => $arr_param["contents"]
+        ];
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute($arr_ps);
+        return $result; //정상 : 쿼리 결과 리턴
+    }
+    catch(Exception $e) {
+        return false;  // 예외발생 : false 리턴
+    }
+    }
 
 
-    // }
+    
+    // detail
+    function db_select_inf(&$conn, &$arr_param) {
+
+    $sql = 
+    " SELECT 
+    l_no, title, contents, create_at, update_at 
+    FROM 
+    list_table 
+    where 
+    b_no = :b_no
+    AND
+    delete_at IS null ";
+
+    $arr_ps = [
+        ":b_no" => $arr_param["b_no"]
+    ];
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($arr_ps);
+        $result = $stmt->fetchAll();
+    
+        return $result; // 정상 : 쿼리 결과 리턴
+    }
+    catch(Exception $e) {
+        echo $e->getMessage(); // Exception 
+        return false; // 예외발생 : false 리턴
+    }
+    }
+    

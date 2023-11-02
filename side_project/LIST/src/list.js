@@ -26,3 +26,7 @@ function fn_checkByte(obj){
             document.getElementById("nowByte").style.color = "#FF7979";
         }
     }
+
+    //insert
+
+    

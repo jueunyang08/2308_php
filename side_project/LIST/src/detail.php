@@ -23,14 +23,27 @@ require_once(ROOT. "lib/lib_db.php"); // DB 관련 라이브러리
             <!-- 컨텐츠 영역 -->
             <div class= 'content_section'>
 
+            <div class= 'detail_title_section'>
+                <div class='l_no'>1</div>
+                <p class="detail_title">To do list1</p>
+            </div>
+
+            <div class='detail_content_section'>
+                <div class='detail_content'> contents </div>
+                <div class='detail_date'>
+                    <p class='date_CSS'>C_date 2023/11/02</p>
+                    <p class='date_CSS'>U_date 2023/11/02</p> 
+                </div>
             </div>
         
             <!-- 페이지 푸터 영역 -->
             <div class='page_footer_section'>
                 <!-- 뒤로가기 버튼 -->
-                <button class='btn_CSS footer_position'></button>
-                <!-- 작성 버튼 -->
-                <button class='btn_CSS footer_position'></button>
+                <button class='btn_CSS prev_btn footer_position'></button>
+                <!-- 수정 버튼 -->
+                <button class='btn_CSS update_btn footer_position'></button>
+                <!-- 삭제 버튼 -->
+                <button class='btn_CSS delete_btn footer_position'></button>
             </div>
         </div>
     </main>

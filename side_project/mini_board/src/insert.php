@@ -60,7 +60,6 @@ if($http_method === "POST") {
         // echo $e->getMessage(); // Exception 메세지 출력
         header("Location: error.php/?err_msg={$e->getmessage()}"); // error 메세지 출력 (error.php)
         exit;
-
     } finally {
         db_destroy_conn($conn); //DB 파기
     }
@@ -104,7 +103,7 @@ if($http_method === "POST") {
 </div>
 <section>
 <button class="delete_button"><a class="gray" href="/mini_board/src/list.php"> 취소 </a></button>
-<button class ="delete_button cursor"type="submit"> 작성 </button>
+<button class ="delete_button cursor" type="submit"> 작성 </button>
     
 </section>
 </form>

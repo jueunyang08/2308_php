@@ -181,6 +181,19 @@ body {
                 background-image: url("../../doc/icon_right.png");
                 float: right;
             }
+            /* 수정 버튼 img */
+            .update_btn {
+                background-image: url("../../doc/icon_pencil.png");
+                background-size: 50%;
+                float: right;
+                margin-left: 10px;
+            }
+            /* 삭제 버튼 img */
+            .delete_btn {
+                background-image: url("../../doc/icon_trash.png");
+                background-size: 50%;
+                float: right;
+            }
             /* 페이지 넘버 버튼 CSS */
             a {
                 display: inline-block;
@@ -277,8 +290,66 @@ body {
                 color: #acacac;
                 display: inline-block;
             }
-
-
+            .err_msg {
+                color: #FF7979;
+                text-align: center;
+            }
+        /* detail.php */
+            .detail_title_section {
+                width: 100%;
+                height: 70px;
+            }
+            .l_no {
+                width: 50px;
+                height: 50px;
+                background-color: #FF7979;
+                color: white;
+                display: inline-block;
+                text-align: center;
+                line-height: 50px;
+                vertical-align: middle;
+                border-radius: 3px;
+            }
+            /* 제목 CSS */
+            .detail_title {
+                line-height: 70px;
+                margin-left: 5px;
+                display: inline-block;
+                color: #FF7979;
+                font-size: 25px;
+            }
+            /* 내용 전체 영역 */
+            .detail_content_section {
+                width: 100%;
+                height: 300px;
+                margin-top: 10px;
+            }
+                /* 내용 영역 */
+                .detail_content {
+                    width: 100%;
+                    height: 270px;
+                    color: #444444;
+                    font-size: 18px;
+                }
+                /* 날짜 영역 */
+                .detail_date {
+                    width: 100%;
+                    height: 25px;
+                }
+                /* 작성일 / 수정일 CSS */
+                .date_CSS {
+                    float: right;
+                    display: inline-block;
+                    font-size: 10px;
+                    width: 130px;
+                    background-color: #FF7979;
+                    height: 25px;
+                    color: white;
+                    line-height: 25px;
+                    text-align: center;
+                    border-radius: 3px;
+                    margin-left: 10px;
+                }
 
 
 

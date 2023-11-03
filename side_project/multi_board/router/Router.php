@@ -37,12 +37,12 @@ class Router {
     // 로그아웃 GET (로그아웃은 POST가 필요없음) 
     } else if($url === "user/logout") {
         if($method === "GET") {
-            // 해당 컨트롤러 호출
+            new UC("logoutGet");
         }
     // 회원가입 GET OR POST
     } else if($url === "user/regist") {
         if($method === "GET") {
-                new UC("registGet");
+            new UC("registGet");
         }else {
             
         }

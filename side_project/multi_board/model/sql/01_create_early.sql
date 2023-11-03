@@ -1,0 +1,31 @@
+CREATE DATABASE multiboard;
+USE multiboard;
+
+CREATE TABLE USER(
+id INT PRIMARY KEY AUTO_INCREMENT
+,u_id VARCHAR(20) NOT NULL
+,u_pw VARCHAR(256) NOT NULL
+,u_name VARCHAR(50)
+,created_at DATETIME not null DEFAULT CURRENT_TIMESTAMP()
+,updated_at DATETIME not null DEFAULT CURRENT_TIMESTAMP()
+,deleted_at DATETIME);
+
+CREATE TABLE board(
+b_no INT PRIMARY KEY AUTO_INCREMENT
+,id INT NOT NULL
+,b_type CHAR(1) NOT NULL
+,b_title VARCHAR(30) NOT NULL
+,b_content VARCHAR(1000) NOT NULL
+,img_name VARCHAR(100)
+,b_create_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP()
+,b_update_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP()
+,b_delete_at DATETIME
+);
+
+-- 3) boardname(게시판 기본 정보) Table
+-- pk, 게시판타입, 게시판 이름
+
+CREATE TABLE boardname(
+ b_inf_no INT PRIMARY KEY AUTO_INCREMENT
+ ,b_type CHAR(1) NOT NULL
+ ,b_name VARCHAR(30) NOT NULL);

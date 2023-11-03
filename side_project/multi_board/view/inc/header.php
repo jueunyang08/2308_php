@@ -19,7 +19,7 @@
                     </ul>
                   </li>
                 </ul>
-                <a class='nav-link text-light' href="./login.html" role="button">로그아웃</a>
+                <a class='nav-link text-light' href="/user/logout" role="button">로그아웃</a>
               </div>
               <?php } ?>
             </div>

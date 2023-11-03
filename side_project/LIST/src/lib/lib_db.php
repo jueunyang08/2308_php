@@ -3,8 +3,8 @@
 function db_conn(&$conn) {
     $db_host = "localhost";
     $db_user ="root";
-    //   $db_pw = "php504";
-      $db_pw = "1234";
+    $db_pw = "php504";
+    //$db_pw = "1234";
     $db_db_name = "list";
     $db_charset ="utf8mb4";
     $db_dns = "mysql:host=".$db_host.";dbname=".$db_db_name.";charset=".$db_charset;
@@ -49,14 +49,14 @@ function db_conn(&$conn) {
         try {
             $sql =
             "SELECT 
-            l_no, 
+            l_No, 
             title, 
             contents, 
             create_at, 
             update_at, 
             delete_at
             FROM list_table
-            ORDER BY l_no DESC
+            ORDER BY l_No DESC
             LIMIT :list_cnt
             OFFSET :offset
             ";
@@ -80,7 +80,7 @@ function db_conn(&$conn) {
     function db_list_cnt(&$conn) {
         
         $sql =
-        "SELECT COUNT(l_no) cnt 
+        "SELECT COUNT(l_No) cnt 
         FROM list_table 
         WHERE delete_at IS NULL
         ";
@@ -125,16 +125,16 @@ function db_conn(&$conn) {
 
     $sql = 
     " SELECT 
-    l_no, title, contents, create_at, update_at 
+    l_No, title, contents, date_format(create_at, '%y/%m/%d') as create_at, update_at 
     FROM 
     list_table 
     where 
-    b_no = :b_no
+    l_No = :l_No
     AND
     delete_at IS null ";
 
     $arr_ps = [
-        ":b_no" => $arr_param["b_no"]
+        ":l_No" => $arr_param["l_No"]
     ];
 
     try {
@@ -150,3 +150,56 @@ function db_conn(&$conn) {
     }
     }
     
+    // delete 정보
+    function db_select_pk(&$conn, &$arr_param) {
+        $sql = "
+        SELECT
+        l_No, title, contents, create_at 
+        FROM 
+        list_table
+        WHERE 
+        l_No = :l_No
+        AND 
+        delete_at IS NULL";
+
+        $arr_ps = [
+            ":l_No" => $arr_param["l_No"]
+        ];
+
+        try {
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($arr_ps);
+            $result = $stmt->fetchAll();
+        
+            return $result; // 정상 : 쿼리 결과 리턴
+        }
+        catch(Exception $e) {
+            echo $e->getMessage(); // Exception 
+            return false; // 예외발생 : false 리턴
+        }
+    }
+    // delete 함수
+    function db_delete(&$conn, &$arr_param) {
+        $sql = "
+        UPDATE 
+        list_table 
+        SET delete_at = NOW() 
+        WHERE l_No = :l_No";
+
+        $arr_ps = [
+            ":l_No" => $arr_param["l_No"]
+        ];
+
+        try {
+
+            $stmt = $conn->prepare($sql);
+            $result = $stmt->execute($arr_ps);
+        
+            return $result; // 정상 : 쿼리 결과 리턴
+        }
+        catch(Exception $e) {
+            echo $e->getMessage(); // Exception 
+            return false; // 예외발생 : false 리턴
+        }
+    }

@@ -104,7 +104,7 @@ finally {
             ?>
                 <ul>
                     <div class = 'li_div'>
-                        <li><div class = 'bullet'><p class='num'><?php echo $item["l_no"]; ?></p></div><a class='list_title' href='/LIST/src/detail.php'><?php echo $item["title"]; ?></a>
+                        <li><div class = 'bullet'><p class='num'><?php echo $item["l_No"]; ?></p></div><a class='list_title' href='/LIST/src/detail.php/?page=<?php echo $page_num; ?>&l_No=<?php echo $item["l_No"] ?>'><?php echo $item["title"]; ?></a>
                         <div class="border_line"></div>
                         </li>
                     </div>

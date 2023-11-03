@@ -94,6 +94,7 @@ body {
     width: 500px;
     height: 415px;
     margin: auto;
+    padding-top: 30px;
 }
 
 /* 메인 page CSS */
@@ -146,7 +147,7 @@ body {
             text-align: center;
             color: white;
             font-weight: 30px;
-            font-size: 22px;
+            font-size: 19px;
             line-height: 32px;
         }
         .list_title {
@@ -269,10 +270,6 @@ body {
             .w_btn {
                 float: right;
             }
-            /* insert-contents */
-            .content_section {
-                padding-top: 30px;
-            }
             .insert_title {
                 width: 500px;
                 height: 70px;
@@ -324,8 +321,13 @@ body {
             }
         /* detail.php */
             .detail_title_section {
-                width: 100%;
+                width: 500px;
                 height: 70px;
+                display: inline-block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                
             }
             .l_no {
                 width: 50px;
@@ -341,6 +343,8 @@ body {
             }
             /* 제목 CSS */
             .detail_title {
+                
+                width: 400px;
                 line-height: 70px;
                 margin-left: 10px;
                 display: inline-block;
@@ -351,7 +355,7 @@ body {
             .detail_content_section {
                 width: 100%;
                 height: 305px;
-                margin-top: 10px;
+                margin-top: 4px;
             }
                 /* 내용 영역 */
                 .detail_content {
@@ -365,15 +369,15 @@ body {
                 /* 날짜 영역 */
                 .detail_date {
                     width: 100%;
-                    height: 25px;
-                    padding-top: 5px;
+                    height: 30px;
+                    padding-top: 4px;
                     
                 }
                 /* 작성일 / 수정일 CSS */
                 .date_CSS {
                     
                     display: inline-block;
-                    font-size: 10px;
+                    font-size: 13px;
                     width: 130px;
                     background-color: #FF7979;
                     height: 25px;

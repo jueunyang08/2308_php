@@ -99,14 +99,14 @@ $input_l_no = $_GET["l_No"];
             <!-- 페이지 푸터 영역 -->
             <div class='page_footer_section'>
                 <!-- 뒤로가기 버튼 -->
-                <button type='button' class='btn_CSS prev_btn footer_position cursor' onclick="location.href='/LIST/src/main.php/?page=<?php echo $page_num; ?>'"></button>
+                <button class='btn_CSS prev_btn footer_position cursor' onclick="location.href='/LIST/src/main.php/?page=<?php echo $page_num; ?>'"></button>
                 <!-- 수정 버튼 -->
-                <button type='button'class='btn_CSS update_btn footer_position cursor' onclick="location.href='/LIST/src/update.php/?page=<?php echo $page_num; ?>&l_No=<?php echo $l_No; ?>'"></button>
+                <button class='btn_CSS update_btn footer_position cursor' onclick="location.href='/LIST/src/update.php/?page=<?php echo $page_num; ?>&l_No=<?php echo $l_No; ?>'"></button>
                 <!-- 삭제 버튼 -->
-                <button type='button'class='btn_CSS delete_btn footer_position cursor' onclick="location.href='/LIST/src/delete.php/?page=<?php echo $page_num; ?>&l_No=<?php echo $l_No; ?>'"></button>
+                <button id='deleteID' class='btn_CSS delete_btn footer_position cursor' onclick="location.href='/LIST/src/delete.php/?page=<?php echo $page_num; ?>&l_No=<?php echo $l_No ?>'"></button>
             </div>
         </div>
     </main>
-    <script src ='list.js'></script>
+    <script src="../js/list.js"></script>
 </body>
 </html>

@@ -295,7 +295,7 @@ body {
                 vertical-align: text-top;
                 font-size: 25px;
             }
-            input:focus, textarea:focus {
+            input:focus, .insert_focus:focus {
                 outline: 5px solid #FF7979;
             }
             input, textarea {
@@ -388,6 +388,36 @@ body {
                     margin-left: 10px;
                     float: right;
                 }
+            /* update */
+            .update_input_title {
+                width:415px;
+                height:50px;
+                line-height: 70px;
+                margin-left: 10px;
+                margin-top: 12px;
+                display: inline-block;
+                color: #FF7979;
+                font-size: 25px;
+                background-color: #E1E1E1;
+                border-radius: 15px;
+                border: none;
+                vertical-align: middle;
+            }
+
+            .update_input_contents {
+                width: 480px;
+                height: 275px;
+                background-color: #E1E1E1;
+                border-radius: 15px;
+                border: none;
+
+                color: #FF7979;
+                vertical-align: text-top;
+                font-size: 18px;
+            }
+            .update_input_contents:focus {
+                box-shadow: 0 0 0 3px #FF7979 inset;
+            }
 
 
 

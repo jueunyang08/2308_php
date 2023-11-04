@@ -204,3 +204,36 @@ function db_conn(&$conn) {
             return false; // 예외발생 : false 리턴
         }
     }
+    // update 함수
+function db_update(&$conn, &$arr_param) {
+    $sql = 
+    " UPDATE 
+    list_table 
+    SET 
+    title = :title, 
+    contents = :contents,
+    update_at = now()
+    WHERE 
+    l_no = :l_No ";
+
+    $arr_ps = [
+
+    ":l_No" => $arr_param["l_No"],
+    ":title" => $arr_param["title"],
+    ":contents" => $arr_param["contents"]
+
+    ];
+
+    try {
+
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute($arr_ps);
+    
+        return $result; // 정상 : 쿼리 결과 리턴
+    }
+    catch(Exception $e) {
+        echo $e->getMessage(); // Exception 
+        return false; // 예외발생 : false 리턴
+    }
+
+}

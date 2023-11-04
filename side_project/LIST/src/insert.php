@@ -89,7 +89,7 @@ if($http_method === "POST") {
                     <!-- 제목 -->
                     <input id= "title" name="title" class='insert_title w_title' type="text" maxlength='17' placeholder='제목을 입력하세요' value="<?php echo $title; ?>">
                     <!-- 내용 -->
-                    <textarea name="contents" id="contents" onkeyup="fn_checkByte(this)" class='insert_content w_content inner_content scroll_box' cols="30" rows="10" placeholder='내용을 입력하세요'><?php echo $contents; ?></textarea>
+                    <textarea name="contents" id="contents" onkeyup="fn_checkByte(this)" class='insert_focus insert_content w_content inner_content scroll_box' cols="30" rows="10" placeholder='내용을 입력하세요'><?php echo $contents; ?></textarea>
                     <sup>(<span id='nowByte'>0</span>/300bytes)</sup>
                 </div>
             

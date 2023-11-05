@@ -15,6 +15,8 @@ $conn = null; // DB 커넥션 변수
 $list_cnt = 3;
 // 페이지 번호 초기화
 $page_num = 1; 
+// 에러
+$err_msg = [];
 
 try     {
             // DB 접속
@@ -62,11 +64,14 @@ try     {
                 ,"offset" => $offset
             ];
 
+
             // 리스트 조회
             $result = db_list_select($conn, $arr_param);
-            if(!$result) {
-                // Select 에러
-                throw new Exception("DB Error : db_list_select"); // 강제 예외 발생 : SELECT board
+            if(count($result) === 0) {
+                $err_msg[] = "error";
+            }
+            if(count($err_msg) >= 1) {
+                    header("Location: main_error.php"); // error 메세지 출력 (error.php)
             }
         }
 catch(Exception $e) {

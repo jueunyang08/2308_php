@@ -146,11 +146,8 @@ finally {
                         </div>
 
                         <div class='detail_content_section'>
-                            <div class='scroll_box'>
-                                <div class='detail_content'>
-                                <textarea name="contents" id="contents" class='update_input_contents inner_content scroll_box update_input_focus ' cols="30" rows="10" ><?php echo $item["contents"]; ?></textarea>
-                                </div>
-                            </div>
+                                
+                                <textarea name="contents" id="contents" class='update_input_contents' cols="30" rows="10" ><?php echo $item["contents"]; ?></textarea>
                             
                         </div>
                     

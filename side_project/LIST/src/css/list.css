@@ -87,8 +87,9 @@ body {
         line-height: 35px;
     }
     .cursor {
-    cursor: pointer;
+        cursor: pointer;
     }
+
 /* 공통 content_section */
 .content_section {
     width: 500px;
@@ -164,230 +165,262 @@ body {
             line-height: 30px;
             vertical-align: middle;
         }
-/* 페이지 푸터 영역 */
-    .page_footer_section {
-        width: 500px;
-        height: 100px;
-        margin: 0 auto;
+    /* main error */
+    .error_MSG {
+        text-align: center;
+        line-height: 300px;
+        color: #acacac;
     }
-        /* 푸터 - 버튼 위치조정 class */
-        .footer_position {
-            margin-top: 40px;
+/* 페이지 푸터 영역 */
+.page_footer_section {
+    width: 500px;
+    height: 100px;
+    margin: 0 auto;
+}
+    /* 푸터 - 버튼 위치조정 class */
+    .footer_position {
+        margin-top: 40px;
+    }
+    /* 버튼 CSS */
+    .btn_CSS {
+        background-color: #FF7979;
+        border: 1px solid #FF7979;
+        background-repeat: no-repeat;
+        background-size:14px;
+        display: inline-block;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+    }
+    /* 비활성화 된 버튼 CSS */
+    .off_btn_CSS {
+        background-color: #ffffff;
+        border: 1px solid #FF7979;
+        background-repeat: no-repeat;
+        background-size:14px;
+        display: inline-block;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;  
+    }
+/* main.php */
+
+    /* 이전 버튼 CSS */
+    .prev_btn {
+        background-image: url("../../doc/icon_left.png");
+    }
+    /* 다음 버튼 CSS */
+    .next_btn {
+        background-image: url("../../doc/icon_right.png");
+        float: right;
         }
-        /* 버튼 CSS */
-        .btn_CSS {
+    /* 수정 버튼 img */
+    .update_btn {
+        background-image: url("../../doc/icon_pencil.png");
+        background-size: 60%;
+        float: right;
+        margin-left: 10px;
+    }
+    /* 삭제 버튼 img */
+    .delete_btn {
+        background-image: url("../../doc/icon_trash.png");
+        background-size: 60%;
+        float: right;
+    }
+    /* 페이지 넘버 버튼 CSS */
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    .text_CSS {
+        color: white;
+        font-weight: 30px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+    }
+    .off_text_CSS {
+        color: #FF7979;
+        font-weight: 30px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+    }
+    .pagenum_section {
+        display: inline-block;
+        /* 중앙 정렬 */
+        position: fixed;
+        left: 50%;
+        transform: translateX( -50% );
+    }
+/* insert.php */
+    /* 취소.작성 버튼 */
+    .c_w_btn {
+        background-color: #FF7979;
+        border: none;
+        background-repeat: no-repeat;
+        background-size:14px;
+        display: inline-block;
+        background-position: center;
+        width: 60px;
+        height: 40px;
+        border-radius: 3px;
+
+        color: white;
+        font-weight: 30px;
+        font-size: 20px;
+    }
+    /* 작성 버튼 float: right */
+    .w_btn {
+        float: right;
+    }
+    .insert_title {
+        width: 500px;
+        height: 70px;
+        background-color: #E1E1E1;
+        border-radius: 15px;
+        border: none;
+    }
+    .insert_content {
+        width: 500px;
+        height: 280px;
+        margin-top: 30px;
+        background-color: #E1E1E1;
+        border-radius: 15px;
+        border: none;
+    }
+    .w_title {
+        line-height: 70px;
+        font-size: 30px;
+        color: #FF7979;
+    }
+    .w_content {
+        color: #FF7979;
+        vertical-align: text-top;
+        font-size: 25px;
+    }
+    input:focus, .insert_focus:focus {
+        outline: 5px solid #FF7979;
+    }
+    input, textarea {
+        padding: 15px;
+        resize: none;
+    }
+    .text_limit {
+        font-size: 13px;
+        color: #d1d1d1;
+        margin-top: 5px;
+        margin-left: 460px;
+        display: inline-block;
+    }
+    sup {
+        margin-top: 5px;
+        margin-left: 400px;
+        color: #acacac;
+        display: inline-block;
+    }
+    .err_msg {
+        color: #FF7979;
+        text-align: center;
+    }
+/* detail.php */
+    .detail_title_section {
+        width: 500px;
+        height: 70px;
+        display: inline-block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        border: none;
+    }
+    .l_no {
+        width: 50px;
+        height: 50px;
+        background-color: #FF7979;
+        color: white;
+        display: inline-block;
+        text-align: center;
+        line-height: 50px;
+        vertical-align: middle;
+        border-radius: 3px;
+        font-size: 20px;
+    }
+    /* 제목 CSS */
+    .detail_title {
+        width: 400px;
+        line-height: 70px;
+        margin-left: 10px;
+        display: inline-block;
+        color: #FF7979;
+        font-size: 25px;
+    }
+    /* 내용 전체 섹션 */
+    .detail_content_section {
+        width: 100%;
+        height: 305px;
+        margin-top: 4px;
+    }
+        /* 내용 영역 */
+        .detail_content {
+            width: 100%;
+            height: 275px;
+            color: #444444;
+            font-size: 18px;
+            word-break: break-all;
+            line-height: 30px;
+        }
+        /* 날짜 영역 */
+        .detail_date {
+            width: 100%;
+            height: 30px;
+            padding-top: 4px; 
+        }
+        /* 작성일 / 수정일 CSS */
+        .date_CSS {        
+            display: inline-block;
+            font-size: 13px;
+            width: 130px;
             background-color: #FF7979;
-            border: 1px solid #FF7979;
-            background-repeat: no-repeat;
-            background-size:14px;
-            display: inline-block;
-            background-position: center;
-            width: 40px;
-            height: 40px;
+            height: 25px;
+            color: white;
+            line-height: 25px;
+            text-align: center;
             border-radius: 3px;
+            margin-left: 10px;
+            float: right;
         }
-        /* 비활성화 된 버튼 CSS */
-        .off_btn_CSS {
-            background-color: #ffffff;
-            border: 1px solid #FF7979;
-            background-repeat: no-repeat;
-            background-size:14px;
-            display: inline-block;
-            background-position: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 3px;
-            
-        }
-        /* main.php */
+/* update */
+    .update_input_title {
+        width:415px;
+        height:50px;
+        line-height: 70px;
+        margin-left: 10px;
+        margin-top: 12px;
+        display: inline-block;
+        color: #FF7979;
+        font-size: 25px;
+        background-color: #E1E1E1;
+        border-radius: 15px;
+        border: none;
+        vertical-align: middle;
+    }
+    .update_input_contents {
+        width: 480px;
+        height: 285px;
+        background-color: #E1E1E1;
+        border-radius: 15px;
+        border: none;
 
-            /* 이전 버튼 CSS */
-            .prev_btn {
-                background-image: url("../../doc/icon_left.png");
-            }
-            /* 다음 버튼 CSS */
-            .next_btn {
-                background-image: url("../../doc/icon_right.png");
-                float: right;
-            }
-            /* 수정 버튼 img */
-            .update_btn {
-                background-image: url("../../doc/icon_pencil.png");
-                background-size: 60%;
-                float: right;
-                margin-left: 10px;
-            }
-            /* 삭제 버튼 img */
-            .delete_btn {
-                background-image: url("../../doc/icon_trash.png");
-                background-size: 60%;
-                float: right;
-            }
-            /* 페이지 넘버 버튼 CSS */
-            a {
-                display: inline-block;
-                text-decoration: none;
-            }
-            .text_CSS {
-                color: white;
-                font-weight: 30px;
-                font-size: 20px;
-                text-align: center;
-                line-height: 40px;
-            }
-            .off_text_CSS {
-                color: #FF7979;
-                font-weight: 30px;
-                font-size: 20px;
-                text-align: center;
-                line-height: 40px;
-            }
-            .pagenum_section {
-                display: inline-block;
-                /* 중앙 정렬 */
-                position: fixed;
-                left: 50%;
-                transform: translateX( -50% );
-            }
-        /* insert.php */
-            /* 취소.작성 버튼 */
-            .c_w_btn {
-                background-color: #FF7979;
-                border: none;
-                background-repeat: no-repeat;
-                background-size:14px;
-                display: inline-block;
-                background-position: center;
-                width: 60px;
-                height: 40px;
-                border-radius: 3px;
-
-                color: white;
-                font-weight: 30px;
-                font-size: 20px;
-            }
-            /* 작성 버튼 float: right */
-            .w_btn {
-                float: right;
-            }
-            .insert_title {
-                width: 500px;
-                height: 70px;
-                background-color: #E1E1E1;
-                border-radius: 15px;
-                border: none;
-            }
-            .insert_content {
-                width: 500px;
-                height: 280px;
-                margin-top: 30px;
-                background-color: #E1E1E1;
-                border-radius: 15px;
-                border: none;
-            }
-            .w_title {
-                line-height: 70px;
-                font-size: 30px;
-                color: #FF7979;
-            }
-            .w_content {
-                color: #FF7979;
-                vertical-align: text-top;
-                font-size: 25px;
-            }
-            input:focus, textarea:focus {
-                outline: 5px solid #FF7979;
-            }
-            input, textarea {
-                padding: 15px;
-                resize: none;
-            }
-            .text_limit {
-                font-size: 13px;
-                color: #d1d1d1;
-                margin-top: 5px;
-                margin-left: 460px;
-                display: inline-block;
-            }
-            sup {
-                margin-top: 5px;
-                margin-left: 400px;
-                color: #acacac;
-                display: inline-block;
-            }
-            .err_msg {
-                color: #FF7979;
-                text-align: center;
-            }
-        /* detail.php */
-            .detail_title_section {
-                width: 500px;
-                height: 70px;
-                display: inline-block;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                white-space: nowrap;
-                
-            }
-            .l_no {
-                width: 50px;
-                height: 50px;
-                background-color: #FF7979;
-                color: white;
-                display: inline-block;
-                text-align: center;
-                line-height: 50px;
-                vertical-align: middle;
-                border-radius: 3px;
-                font-size: 20px;
-            }
-            /* 제목 CSS */
-            .detail_title {
-                
-                width: 400px;
-                line-height: 70px;
-                margin-left: 10px;
-                display: inline-block;
-                color: #FF7979;
-                font-size: 25px;
-            }
-            /* 내용 전체 영역 */
-            .detail_content_section {
-                width: 100%;
-                height: 305px;
-                margin-top: 4px;
-            }
-                /* 내용 영역 */
-                .detail_content {
-                    width: 100%;
-                    height: 275px;
-                    color: #444444;
-                    font-size: 18px;
-                    word-break: break-all;
-                    line-height: 30px;
-                }
-                /* 날짜 영역 */
-                .detail_date {
-                    width: 100%;
-                    height: 30px;
-                    padding-top: 4px;
-                    
-                }
-                /* 작성일 / 수정일 CSS */
-                .date_CSS {
-                    
-                    display: inline-block;
-                    font-size: 13px;
-                    width: 130px;
-                    background-color: #FF7979;
-                    height: 25px;
-                    color: white;
-                    line-height: 25px;
-                    text-align: center;
-                    border-radius: 3px;
-                    margin-left: 10px;
-                    float: right;
-                }
+        color: #FF7979;
+        vertical-align: text-top;
+        font-size: 18px;
+    }
+    .update_input_contents:focus {
+        outline: none;
+        border: #FF7979 5px solid;
+    }
 
 
 

@@ -105,7 +105,7 @@ finally {
            
             <div class= 'content_section'>
 
-            <form action="/LIST/src/delete.php" method='post'>
+            <form action="/LIST/src/delete.php" method="post">
             <input type="hidden" name="l_No" value="<?php echo $l_No; ?>">
             <div class= 'detail_title_section'>
                 <div class='l_no'><?php echo $item["l_No"]; ?></div>
@@ -133,12 +133,12 @@ finally {
                 <!-- 수정 버튼 -->
                 <button type='button' class='btn_CSS update_btn footer_position cursor' onclick="location.href='/LIST/src/update.php'"></button>
                 <!-- 삭제 버튼 -->
-                <button type='button' class='btn_CSS delete_btn footer_position cursor' onclick="return deLete()"></button>
+                <button type='submit' class='btn_CSS delete_btn footer_position cursor' onclick="return deLete()"></button>
             </form>
 
             </div>
         </div>
     </main>
-    <script src ='list.js'></script>
+    <script src="../js/list.js"></script>
 </body>
 </html>

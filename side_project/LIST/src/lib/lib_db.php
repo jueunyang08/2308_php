@@ -3,8 +3,8 @@
 function db_conn(&$conn) {
     $db_host = "localhost";
     $db_user ="root";
-    $db_pw = "php504";
-    //$db_pw = "1234";
+    //$db_pw = "php504";
+    $db_pw = "1234";
     $db_db_name = "list";
     $db_charset ="utf8mb4";
     $db_dns = "mysql:host=".$db_host.";dbname=".$db_db_name.";charset=".$db_charset;
@@ -56,6 +56,7 @@ function db_conn(&$conn) {
             update_at, 
             delete_at
             FROM list_table
+            where delete_at IS NULL
             ORDER BY l_No DESC
             LIMIT :list_cnt
             OFFSET :offset
@@ -125,7 +126,7 @@ function db_conn(&$conn) {
 
     $sql = 
     " SELECT 
-    l_No, title, contents, date_format(create_at, '%y/%m/%d') as create_at, update_at 
+    l_No, title, contents, date_format(create_at, '%y/%m/%d') as create_at, date_format(update_at, '%y/%m/%d') as update_at
     FROM 
     list_table 
     where 
@@ -154,7 +155,7 @@ function db_conn(&$conn) {
     function db_select_pk(&$conn, &$arr_param) {
         $sql = "
         SELECT
-        l_No, title, contents, create_at 
+        l_No, title, contents, date_format(create_at, '%y/%m/%d') as create_at, date_format(update_at, '%y/%m/%d') as update_at
         FROM 
         list_table
         WHERE 
@@ -203,3 +204,36 @@ function db_conn(&$conn) {
             return false; // 예외발생 : false 리턴
         }
     }
+    // update 함수
+function db_update(&$conn, &$arr_param) {
+    $sql = 
+    " UPDATE 
+    list_table 
+    SET 
+    title = :title, 
+    contents = :contents,
+    update_at = now()
+    WHERE 
+    l_no = :l_No ";
+
+    $arr_ps = [
+
+    ":l_No" => $arr_param["l_No"],
+    ":title" => $arr_param["title"],
+    ":contents" => $arr_param["contents"]
+
+    ];
+
+    try {
+
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute($arr_ps);
+    
+        return $result; // 정상 : 쿼리 결과 리턴
+    }
+    catch(Exception $e) {
+        echo $e->getMessage(); // Exception 
+        return false; // 예외발생 : false 리턴
+    }
+
+}

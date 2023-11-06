@@ -11,11 +11,16 @@
                 
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      게시판
+                    <?php echo $this->titleBoardName ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="/board/list">자유게시판</a></li>
-                      <li><a class="dropdown-item" href="/board/list">질문게시판</a></li>
+                      <?php
+                        foreach ($this->arrBoardNameInfo as $item){
+                      ?>
+                        <li><a class="dropdown-item" href="/board/list?b_type=<?php echo $item["b_type"] ?>"><?php echo $item["b_name"] ?></a></li>
+                     <?php 
+                        }
+                      ?>
                     </ul>
                   </li>
                 </ul>

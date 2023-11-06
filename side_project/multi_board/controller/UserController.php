@@ -5,6 +5,7 @@ namespace controller;
 use model\UserModel;
 
 class UserController extends ParentsController {
+
     // 로그인 login 페이지 이동
     protected function loginGet() { // 자식에게는 해당 메소드만 작성을 해줌
         return "view/login.php"; // 리턴을 받는애는 부모 컨트롤러
@@ -28,9 +29,9 @@ class UserController extends ParentsController {
         }
 
         // 세션에 u_id 저장
-        $_SESSION["u_id"] = $resultUserInfo[0]["u_id"];
+        $_SESSION["id"] = $resultUserInfo[0]["id"];
 
-        return "Location: /board/list";
+        return "Location: /board/list?b_type=0";
     }
     // 로그아웃 처리
     protected function logoutGet() {

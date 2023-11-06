@@ -28,7 +28,7 @@ class UserModel extends ParentsModel {
             $result = $stmt->fetchAll();
             return $result;
         }catch(Exception $e) {
-            echo "UserMpdel->getUserInfo Error : ".$e->getmessage();
+            echo "UserModel->getUserInfo Error : ".$e->getmessage();
             exit();
         }
 

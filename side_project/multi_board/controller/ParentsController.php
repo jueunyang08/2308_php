@@ -3,20 +3,22 @@
 namespace controller;
 
 // 오버라이드 : (부모클래스한테 있는 메소드를 자식클래스에게 새롭게 정의하는것 )
+use model\BoardNameModel;
 
 class ParentsController {
     // 캡슐화 (나와 내 상속관계에서만 쓸수있는 멤버를 만듬)
     //(프라이빗은 게터나 새터같은 메소드를 정의 해야함.)
 
+    protected $controllerChkUrl; //헤더 표시 제어용 문자열
+    protected $arrErrorMsg = []; //화면에 표시할 에러메세지 배열
+    protected $arrBoardNameInfo; // 헤더 게시판 드롭다운 표시용
 
-    //헤더 표시 제어용 문자열
-    protected $controllerChkUrl; 
-    //화면에 표시할 에러메세지 배열
-    protected $arrErrorMsg = [];
     //비로그인 시 접속 불가능한 URL 리스트
     private $arrNeedAuth = [     // 부모 컨트롤러 에서만 접근  
         "board/list"
     ];
+
+
     // ----------------------------------------------------------------------------
     public function __construct($action) {
         // 뷰 관련 체크 접속 url 셋팅
@@ -30,6 +32,11 @@ class ParentsController {
         // 유저 로그인 및 권한 체크
         $this->chkAuthorization();
 
+        // 헤더 게시판 드롭다운 박스 데이터 획득
+        $boardNameModel = new BoardNameModel;
+        $this->arrBoardNameInfo = $boardNameModel->getBoardNameList();
+        $boardNameModel->destroy();// 파기(더이상 사용X)
+
         // controller 메소드 호출 
         $resultAction = $this->$action();
 
@@ -41,9 +48,16 @@ class ParentsController {
     // 유저 권한 체크용 메소드
     private function chkAuthorization() {
         $url = $_GET["url"];
-        if( !isset($_SESSION["u_id"]) && in_array($url, $this->arrNeedAuth) ) {  
+
+        // 접속 권한이 없는 페이지 접속 차단
+        if( !isset($_SESSION["id"]) && in_array($url, $this->arrNeedAuth) ) {  
             header("Location: /user/login");
             exit();
+        }
+    // 로그인한 상태에서 로그인 페이지 접속시 board/list로 이동
+    if( isset($_SESSION["id"]) && $url === "user/login" ) {
+        header("Location: /board/list");
+        exit();
         }
     }
 

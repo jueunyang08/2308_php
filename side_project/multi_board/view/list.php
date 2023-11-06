@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판</title>
+    <title><?php echo $this->titleBoardName ?></title>
     <link rel="stylesheet" href="/view/css/common.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -12,7 +12,8 @@
 <?php require_once("view/inc/header.php"); ?>
 
 <div class="text-center mt-4 mb-4">
-        <h1>자유게시판</h1>
+
+        <h1><?php echo $this->titleBoardName ?></h1>
         
           <svg xmlns="http://www.w3.org/2000/svg"
                 width="30" height="30" fill="currentColor"
@@ -32,54 +33,21 @@
 </div> -->
 
 <main>
-  <div class="card">
-      <img src="/view/img/AurelionSol_0.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">AurelionSol</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
+  <?php
+    foreach($this->arrBoardInfo as $item) {
+  ?>
+    <div class="card">
+        <!-- 이미지 없으면 빈문자열로 보내기 -->
+        <img src="<?php echo isset($item["img_name"]) ? "/"._PATH_USERIMG.$item["img_name"] : ""; ?>" class="card-img-top" alt="이미지 없음">
+        <div class="card-body">
+            <h5 class="card-title"><?php echo $item["b_title"] ?></h5>
+            <p class="card-text"><?php echo mb_substr($item["b_content"], 0, 10)."..." ?></p>
+            <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
+        </div>
     </div>
-  </div>
-  <div class="card">
-    <img src="/view/img/AurelionSol_0.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">AurelionSol</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-  </div>
-</div>
-<div class="card">
-  <img src="/view/img/AurelionSol_0.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">AurelionSol</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-</div>
-</div>
-<div class="card">
-  <img src="/view/img/AurelionSol_0.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">AurelionSol</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-</div>
-</div>
-<div class="card">
-  <img src="/view/img/AurelionSol_0.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">AurelionSol</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-</div>
-</div>
-<div class="card">
-  <img src="/view/img/AurelionSol_0.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">AurelionSol</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-</div>
-</div>
+  <?php
+  }
+  ?>
 </main>
 
 <!-- 상세 Modal -->
@@ -107,19 +75,20 @@
 <div class="modal fade" id="modalInsert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="">
-      <div class="modal-header">
-        <input type="text" class="form-control" placeholder="제목을 입력하세요">
-      </div>
-      <div class="modal-body">
-        <textarea class="form-control" id="exampleFormControlTextarea1" cols="30" rows="10" placeholder="내용을 입력하세요."></textarea>
-      <br><br>
-      <input type="file" accept="image/*">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="submit" class="btn btn-primary">작성</button>
-      </div>
+      <form action="/board/add" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="b_type" value="<?php echo $this->boardType; ?>">
+        <div class="modal-header">
+          <input type="text" name="b_title"class="form-control" placeholder="제목을 입력하세요">
+        </div>
+        <div class="modal-body">
+          <textarea class="form-control" name="b_content" id="exampleFormControlTextarea1" cols="30" rows="10" placeholder="내용을 입력하세요."></textarea>
+        <br><br>
+        <input type="file" name="img_name" accept="image/*">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+          <button type="submit" class="btn btn-primary">작성</button>
+        </div>
     </form>
     </div>
   </div>

@@ -49,7 +49,13 @@ class Router {
     } else if($url === "board/list") {
         if($method  === "GET") {
             new BC("listGet");
-        } 
+        }
+    } else if($url === "board/add") {
+        if($method === "GET") {
+            // 처리없음
+        } else {
+            new BC("addPost");
+        }
     }
 
 

@@ -22,3 +22,6 @@ main {
     width: 500px;
     height: 500px;
 }
+.regist_btn {
+    border: 1px solid #000;
+}

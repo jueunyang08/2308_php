@@ -36,13 +36,14 @@
   <?php
     foreach($this->arrBoardInfo as $item) {
   ?>
-    <div class="card">
+    <div class="card" id="<?php echo $item["b_no"]; ?>">
         <!-- 이미지 없으면 빈문자열로 보내기 -->
         <img src="<?php echo isset($item["img_name"]) ? "/"._PATH_USERIMG.$item["img_name"] : ""; ?>" class="card-img-top" alt="이미지 없음">
         <div class="card-body">
             <h5 class="card-title"><?php echo $item["b_title"] ?></h5>
             <p class="card-text"><?php echo mb_substr($item["b_content"], 0, 10)."..." ?></p>
-            <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
+            <!-- <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button> -->
+            <button id="btnDetail" class="btn btn-primary" onclick="openDetail(<?php echo $item['b_no'] ?>); return false;">상세</button>
         </div>
     </div>
   <?php
@@ -52,20 +53,22 @@
 
 <!-- 상세 Modal -->
 
-<div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">개발자입니다.</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="b_title">개발자입니다.</h5>
+        <button type="button" onclick="closeDetailModal(); return false;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <span>살려주세요</span>
+        <span id="b_create_at"> 작성일 </span> <br>
+        <span id="b_update_at"> 수정일 </span> <br><br>
+        <span id="b_content">살려주세요</span>
         <br><br>
-        <img src="/view/img/AurelionSol_0.jpg" class="card-img-top">
+        <img id = "img_name" src="" class="card-img-top">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

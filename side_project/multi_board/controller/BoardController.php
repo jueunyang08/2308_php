@@ -76,11 +76,43 @@ class BoardController extends ParentsController {
             $boardModel->rollBack();
         }else {
             $boardModel->commit();
+        }
+
 
         // 사용한 모델 파기
         $boardModel->destroy();
 
-        return "Location: /board/list?b_type=".$b_type;
-        }
+        return "Location: /board/list?b_type=".$b_type;   
     }
+
+    // 상세 정보 API (보드 리스트 상세)
+    protected function detailGet() {
+        $b_no = $_GET["b_no"];
+
+        $arrBoardDetailInfo = [
+            "b_no" => $b_no
+        ];
+
+        $boardModel = new BoardModel();
+        $result = $boardModel->getBoardDetail($arrBoardDetailInfo);
+
+        // 이미지 패스 재설정
+        $result[0]["img_name"] = "/"._PATH_USERIMG.$result[0]["img_name"];
+    
+        // 에러 메세지 배열 객체
+        $arrTmp = [
+            "errflg" => "0",
+            "msg" => "",
+            "data" => $result[0]
+        ];
+
+        $response = json_encode($arrTmp); // 제이슨 형태로 변환
+
+        // response 처리
+        header("Content-type: application/json"); // 응답을 해서 줄건데, 그타입이 json 타입이다.
+        echo $response;
+        exit();
+
+    }
+
 }

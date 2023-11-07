@@ -15,7 +15,9 @@ class ParentsController {
 
     //비로그인 시 접속 불가능한 URL 리스트
     private $arrNeedAuth = [     // 부모 컨트롤러 에서만 접근  
-        "board/list"
+        "board/list",
+        "board/add",
+        "board/detail"
     ];
 
 

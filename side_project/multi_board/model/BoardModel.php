@@ -3,6 +3,7 @@
 namespace model;
 
 class BoardModel extends ParentsModel {
+
     // 보드리스트 정보를 가져오는 메소드
     public function getBoardList($arrBoardInfo) {
         $sql =
@@ -29,6 +30,8 @@ class BoardModel extends ParentsModel {
             exit();
         }
     }
+
+
     // 리스트 추가 하는 메소드
     public function insertBoardList($arrBoardInfo) {
         $sql = 
@@ -55,6 +58,33 @@ class BoardModel extends ParentsModel {
         }
         catch(Exception $e) {
             echo "BoardModel->insertBoardList Error : ".$e->getmessage();
+            exit();
+        }
+    }
+
+    // 디테일 조회
+    
+    public function getBoardDetail($arrBoardDetailInfo) {
+        $sql =
+      " SELECT
+        b_no, id, b_title, b_content, img_name, b_create_at, b_update_at
+        FROM 
+        board 
+        WHERE 
+        b_no = :b_no
+        ";
+
+        $prepare = [
+            ":b_no" => $arrBoardDetailInfo["b_no"]
+        ];
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($prepare);
+            $result = $stmt->fetchAll();
+            return $result;
+        }catch(Exception $e) {
+            echo "BoardModel->getBoardDetail Error : ".$e->getmessage();
             exit();
         }
     }

@@ -1,2 +1,2 @@
 <?php
-base64_encode('1234'); 
+ echo base64_encode('1234'); 

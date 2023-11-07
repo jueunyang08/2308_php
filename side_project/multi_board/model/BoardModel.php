@@ -14,10 +14,13 @@ class BoardModel extends ParentsModel {
         WHERE 
         b_type = :b_type
         and
+        id = :id
+        and
         b_delete_at is null ";
 
         $prepare = [
-            ":b_type" => $arrBoardInfo["b_type"]
+            ":b_type" => $arrBoardInfo["b_type"],
+            ":id" => $arrBoardInfo["id"]
         ];
 
         try {

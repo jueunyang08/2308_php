@@ -13,10 +13,12 @@ class BoardController extends ParentsController {
     protected function listGet() {
         // 파라미터 세팅 
         $b_type = isset($_GET["b_type"]) ? $_GET["b_type"] : "0";
+        $id = $_SESSION["id"];
     
         // Board 정보
         $arrBoardInfo = [
-            "b_type" => $b_type
+            "b_type" => $b_type,
+            "id" => $id
         ];
 
         // 페이지의 제목 셋팅

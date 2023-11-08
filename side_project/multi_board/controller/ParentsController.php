@@ -38,7 +38,7 @@ class ParentsController {
         $boardNameModel = new BoardNameModel;
         $this->arrBoardNameInfo = $boardNameModel->getBoardNameList();
         $boardNameModel->destroy();// 파기(더이상 사용X)
-
+        
         // controller 메소드 호출 
         $resultAction = $this->$action();
 

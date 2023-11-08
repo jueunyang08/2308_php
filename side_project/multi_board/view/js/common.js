@@ -38,3 +38,23 @@ function closeDetailModal() {
     MODAL.classList.add('remove');
     MODAL.style = 'display: none;'
 }
+
+function Checkid() {
+    const USERID = document.querySelector('#u_id').value;
+    const URL = '/user/idchk?u_id='+USERID;
+    const MSG = document.querySelector('#check_msg');
+
+    console.log(URL);
+    fetch(URL)
+    .then( response => response.json() )
+    .then( data => {
+        if(data.data===1) {
+            MSG.innerHTML='중복';
+            MSG.style.color ='red';
+        } else {
+            MSG.innerHTML='사용가능';
+            MSG.style.color ='blue';
+        }
+    })
+    .catch( error => console.log(error) )
+}

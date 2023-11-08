@@ -107,4 +107,36 @@ class UserController extends ParentsController {
     private function encryptionPassword($pw) {
         return base64_encode($pw);
     }
+
+    // 아이디 중복 체크
+    protected function doubleCheck() {
+       $u_id = $_GET["u_id"];
+
+       $arrUserInfo = [
+        "u_id" => $u_id
+       ];
+
+       $idchek = new UserModel();
+       $resultUserInfo = $idchek->getUserInfo($arrUserInfo, false);
+
+       if(count($resultUserInfo)=== 1) {
+        $result=1;
+       } else {
+        $result=0;
+       }
+        // 에러 메세지 배열 객체
+        $arrTmp = [
+            "errflg" => "0",
+            "msg" => "",
+            "data" => $result
+        ];
+
+        $response = json_encode($arrTmp); // 제이슨 형태로 변환
+
+        // response 처리
+        header("Content-type: application/json"); // 응답을 해서 줄건데, 그타입이 json 타입이다.
+        echo $response;
+        exit();
+    }
 }
+

@@ -61,6 +61,10 @@ class Router {
         if($method === "GET") {
             new BC("detailGet");
         }
+    } else if ($url === "user/idchk") {
+        if($method === "GET") {
+            new UC("doubleCheck");
+        }
     }
 
 

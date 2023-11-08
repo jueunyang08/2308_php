@@ -4,6 +4,8 @@
 
 namespace lib;
 
+use model\UserModel; // UserModel 사용
+
 class Validation {   
     private static $arrErrorMsg = []; // Validation 용 에러메세지 저장 프로퍼티
 
@@ -17,8 +19,6 @@ class Validation {
         self::$arrErrorMsg[] = $msg;
     }
 
-
-
     // 유효성 체크 메소드       (파라미터 타입)        : (리턴타입) 
     public static function userChk(array $inputData) : bool {
         // 정규식 처리
@@ -31,13 +31,13 @@ class Validation {
 
         // 아이디 체크
         if(array_key_exists("u_id", $inputData)) { // array_key_exists(): 해당 배열에 키값이 있는지 체크 하는 함수
+         
             if(preg_match($patternId, $inputData["u_id"], $match) === 0) {
                 // ID 에러 처리
                 $msg = "아이디는 8~20자, '영어 대소문자, 숫자' 만 입력 가능합니다.";
                 self::setArrErrorMsg($msg);
-            }
+            } 
         }
-        
 
         // 비밀번호 체크
         if(array_key_exists("u_pw", $inputData)) { // array_key_exists(): 해당 배열에 키값이 있는지 체크 하는 함수

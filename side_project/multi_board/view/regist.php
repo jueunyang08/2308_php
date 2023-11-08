@@ -17,7 +17,12 @@
                 </div>
                 <div class="mb-3">
                 <label for="u_id" class="form-label">아이디</label>
-                <input type="text" minlength="8" maxlength="20"class="form-control" id="u_id" name="u_id">
+                <input type="text" minlength="8" maxlength="20"class="form-control" id="u_id" name="u_id" autocomplete="off">
+                
+                <input type="hidden" name="iddoublechk" id="iddoublechk">
+                
+                <input type="button" value="중복확인" onclick="Checkid(); return false;">
+                <span id="check_msg"></span>
                 </div>
 
                 <div class="mb-3">
@@ -43,5 +48,6 @@
 
     <footer class ='bg-dark text-light fixed-bottom text-center p-3'>저작권</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/view/js/common.js"></script>
 </body>
 </html>

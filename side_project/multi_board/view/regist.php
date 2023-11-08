@@ -21,7 +21,7 @@
                 
                 <input type="hidden" name="iddoublechk" id="iddoublechk">
                 
-                <input type="button" value="중복확인" onclick="Checkid(); return false;">
+                <input type="button" class="border" value="중복확인" onclick="Checkid(); return false;">
                 <span id="check_msg"></span>
                 </div>
 

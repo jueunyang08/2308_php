@@ -85,9 +85,6 @@ class UserController extends ParentsController {
             return "view/regist.php";
         }
 
-        // TODO : 아이디 중복 체크 필요
-
-
         // 인서트 처리
         $userModel = new UserModel();
         $userModel->beginTransaction();
@@ -111,11 +108,16 @@ class UserController extends ParentsController {
     // 아이디 중복 체크
     protected function doubleCheck() {
        $u_id = $_GET["u_id"];
-
+       $arrErrorMsg="";
        $arrUserInfo = [
         "u_id" => $u_id
        ];
 
+       // 유효성 체크 
+       if(!Validation::userChk($arrUserInfo)) {
+        $arrErrorMsg = Validation::getArrErrorMsg()[0];
+    }
+    
        $idchek = new UserModel();
        $resultUserInfo = $idchek->getUserInfo($arrUserInfo, false);
 
@@ -127,7 +129,7 @@ class UserController extends ParentsController {
         // 에러 메세지 배열 객체
         $arrTmp = [
             "errflg" => "0",
-            "msg" => "",
+            "msg" => $arrErrorMsg,
             "data" => $result
         ];
 

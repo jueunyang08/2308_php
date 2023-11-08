@@ -48,13 +48,21 @@ function Checkid() {
     fetch(URL)
     .then( response => response.json() )
     .then( data => {
-        if(data.data===1) {
-            MSG.innerHTML='중복';
-            MSG.style.color ='red';
+        if(data.msg !== "") {
+            MSG.innerHTML=data.msg;
         } else {
-            MSG.innerHTML='사용가능';
-            MSG.style.color ='blue';
+            if(data.data===1) {
+                MSG.innerHTML='사용 불가능한 아이디 입니다.';
+                MSG.classList ='text-danger fw-normal';
+                MSG.style.fontSize = '12px';
+            } else {
+                MSG.innerHTML='사용 가능한 아이디 입니다.';
+                MSG.classList ='text-success fw-normal';
+                MSG.style.fontSize = '12px';
+            }
         }
+        
+       
     })
     .catch( error => console.log(error) )
 }

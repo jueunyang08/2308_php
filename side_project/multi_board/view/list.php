@@ -55,22 +55,28 @@
 
 <div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
+  <form action="/board/delete" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="b_no" id="b_no" ?>
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="b_title">개발자입니다.</h5>
         <button type="button" onclick="closeDetailModal(); return false;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <span id="b_writer"> 작성자 </span> <br>
         <span id="b_create_at"> 작성일 </span> <br>
         <span id="b_update_at"> 수정일 </span> <br><br>
         <span id="b_content">살려주세요</span>
         <br><br>
         <img id = "img_name" src="" class="card-img-top">
       </div>
-      <div class="modal-footer">
-        <button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <div class="modal-footer d-flex bd-highlight mb-3">
+        <button type="submit" onclick="return deLete()" class="btn btn-danger me-auto p-2 bd-highlight border" data-bs-dismiss="modal">삭제</button>
+        <button type="button" onclick="" class="btn btn-dark p-2 bd-highlight" data-bs-dismiss="modal">수정</button>
+        <button type="button" onclick="closeDetailModal(); return false;" class="btn btn-light p-2 bd-highlight border" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
+  </form>
   </div>
 </div>
 

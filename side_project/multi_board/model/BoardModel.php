@@ -13,14 +13,14 @@ class BoardModel extends ParentsModel {
         board 
         WHERE 
         b_type = :b_type
-        and
-        id = :id
+        -- and
+        -- id = :id
         and
         b_delete_at is null ";
 
         $prepare = [
-            ":b_type" => $arrBoardInfo["b_type"],
-            ":id" => $arrBoardInfo["id"]
+            ":b_type" => $arrBoardInfo["b_type"]
+            // ":id" => $arrBoardInfo["id"]
         ];
 
         try {
@@ -89,6 +89,31 @@ class BoardModel extends ParentsModel {
         }catch(Exception $e) {
             echo "BoardModel->getBoardDetail Error : ".$e->getmessage();
             exit();
+        }
+    }
+
+    // delete 처리
+    public function postBoardDelete($arrBoardDeleteInfo) {
+        $sql =
+        " UPDATE board SET b_delete_at = NOW()
+        WHERE b_no = :b_no
+        ";
+
+        $prepare = [
+            ":b_no" => $arrBoardDeleteInfo["b_no"]
+        ];
+
+        try {
+
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute($prepare);
+        
+            return $result; // 정상 : 쿼리 결과 리턴
+        }
+        catch(Exception $e) {
+            echo $e->getMessage(); // Exception 
+            return false;
+            exit(); // 예외발생 : false 리턴
         }
     }
 }

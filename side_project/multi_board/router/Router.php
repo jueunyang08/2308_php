@@ -65,6 +65,12 @@ class Router {
         if($method === "GET") {
             new UC("doubleCheck");
         }
+    } else if ($url === "board/delete") {
+        if($method === "GET") {
+           
+        } else {
+            new BC("deletePost");
+        }
     }
 
 

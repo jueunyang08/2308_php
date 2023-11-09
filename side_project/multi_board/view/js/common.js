@@ -1,3 +1,11 @@
+function deLete() {
+    if(confirm('삭제하시겠습니까?')) {
+            alert('정상적으로 삭제 되었습니다.');
+            return true;
+    } else {
+            return false;
+    }
+};
 
 let test;
 // 상세 모달 제어
@@ -13,12 +21,15 @@ function openDetail(b_no) {
         const IMG = document.querySelector('#img_name');
         const CREATE_AT = document.querySelector('#b_create_at');
         const UPDATE_AT = document.querySelector('#b_update_at');
+        const WRITER = document.querySelector('#b_writer');
+        const BNO = document.querySelector('#b_no');
 
         TITLE.innerHTML = data.data.b_title;
         CONTENT.innerHTML = '내용 : ' + data.data.b_content;
         CREATE_AT.innerHTML = '작성일 : ' + data.data.b_create_at;
         UPDATE_AT.innerHTML = '수정일 : ' + data.data.b_update_at;
         IMG.setAttribute('src', data.data.img_name);
+        BNO.value= data.data.b_no;
 
         // 모달 오픈
         openModal();

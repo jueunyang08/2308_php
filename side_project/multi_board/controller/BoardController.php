@@ -2,12 +2,14 @@
 
 namespace controller;
 
+use Exception;
 use model\BoardModel;
 
 class BoardController extends ParentsController {
     protected $arrBoardInfo;
     protected $titleBoardName;
     protected $boardType;
+    protected $pkinf;
     
     // 게시판 리스트 페이지
     protected function listGet() {
@@ -114,7 +116,34 @@ class BoardController extends ParentsController {
         header("Content-type: application/json"); // 응답을 해서 줄건데, 그타입이 json 타입이다.
         echo $response;
         exit();
-
     }
 
-}
+    // DELETE GET
+    protected function deletePost() {
+
+            $b_no = isset($_POST["b_no"]) ? $_POST["b_no"] : "";
+            $arr_err_msg = [];
+            if($b_no === "") {
+                $arr_err_msg[] = "Parameter Error : b_no";
+            }
+            if(count($arr_err_msg) >= 1) {
+                throw new Exception(implode("<br>", $arr_err_msg));
+            }
+            $arrBoardDeleteInfo = [
+                "b_no" => $b_no
+            ];
+
+            $boardModel = new BoardModel();
+            $boardModel->beginTransaction();
+            $result = $boardModel->postBoardDelete($arrBoardDeleteInfo);
+            // 3-2-3. 게시글 정보 삭제
+            if($result !== true) {
+                $boardModel->rollBack();
+            }else {
+                $boardModel->commit();
+            }
+            $boardModel->destroy();
+            return "Location: /board/list";
+            exit();
+        }
+    }

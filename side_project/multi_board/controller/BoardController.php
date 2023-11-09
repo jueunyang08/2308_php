@@ -102,6 +102,9 @@ class BoardController extends ParentsController {
 
         // 이미지 패스 재설정
         $result[0]["img_name"] = "/"._PATH_USERIMG.$result[0]["img_name"];
+        
+        // 작성 유저 플래그
+        $result[0]["uflg"] = $result[0]["id"] === $_SESSION["id"] ? "1" : "0";
     
         // 에러 메세지 배열 객체
         $arrTmp = [
@@ -118,8 +121,11 @@ class BoardController extends ParentsController {
         exit();
     }
 
-    // DELETE GET
+
+    // 삭제 처리
     protected function deletePost() {
+
+        $id = $_SESSION["id"];
 
             $b_no = isset($_POST["b_no"]) ? $_POST["b_no"] : "";
             $arr_err_msg = [];
@@ -130,7 +136,8 @@ class BoardController extends ParentsController {
                 throw new Exception(implode("<br>", $arr_err_msg));
             }
             $arrBoardDeleteInfo = [
-                "b_no" => $b_no
+                "b_no" => $b_no,
+                "id" => $id
             ];
 
             $boardModel = new BoardModel();
@@ -146,4 +153,47 @@ class BoardController extends ParentsController {
             return "Location: /board/list";
             exit();
         }
+    /*
+    // 삭제 처리 API
+    protected function removeGet() {
+        $errFlg = "0";
+        $errMsg= "";
+        $arrDeleteBoardInfo = [
+            "b_no" => $_GET["b_no"],
+            "id" => $_SESSION["id"]
+        ];
+
+        // delete 처리
+        $boardModel = new BoardModel();
+        $boardModel->beginTransaction();
+        $result = $boardModel->removeBoardCard($arrDeleteBoardInfo)
+
+        if($result !== 1) {
+            $errFlg="1";
+            $errMsg="삭제처리이상"
+                $boardModel->rollBack();
+            }else {
+                $boardModel->commit();
+            }
+
+        $boardModel->destroy();
+
+
+        //레스폰스 데이터 작성
+        $arr = [
+            "errflg" => $errFlg
+            ,"msg" => $errMsg
+            ,"id" => $arrDeleteBoardInfo["id"]
+        ];
+
+        $response = json_encode($arrTmp);
+
+         // response 처리
+         header("Content-type: application/json"); // 응답을 해서 줄건데, 그타입이 json 타입이다.
+         echo $response;
+         exit();
     }
+    */
+}
+
+    

@@ -36,12 +36,14 @@
   <?php
     foreach($this->arrBoardInfo as $item) {
   ?>
-    <div class="card" id="<?php echo $item["b_no"]; ?>">
+    <div class="card  rel" id="<?php echo $item["b_no"]; ?>">
         <!-- 이미지 없으면 빈문자열로 보내기 -->
-        <img src="<?php echo isset($item["img_name"]) ? "/"._PATH_USERIMG.$item["img_name"] : ""; ?>" class="card-img-top" alt="이미지 없음">
+        
+        <img id="listIMG" src="<?php echo isset($item["img_name"]) ? "/"._PATH_USERIMG.$item["img_name"] : ""; ?>" class="card-img-top" alt= "이미지 없음">
+        <div class="writer_div"><span class="b_writer">작성자 | </span> <?php echo $item["u_name"] ?></div>
         <div class="card-body">
-            <h5 class="card-title"><?php echo $item["b_title"] ?></h5>
-            <p class="card-text"><?php echo mb_substr($item["b_content"], 0, 10)."..." ?></p>
+            <h5 class="card-title">제목 | <?php echo $item["b_title"] ?></h5>
+            <p class="card-text">내용 | <?php echo mb_substr($item["b_content"], 0, 10)."..." ?></p>
             <!-- <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button> -->
             <button id="btnDetail" class="btn btn-primary" onclick="openDetail(<?php echo $item['b_no'] ?>); return false;">상세</button>
         </div>
@@ -63,7 +65,7 @@
         <button type="button" onclick="closeDetailModal(); return false;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <span id="b_writer"> 작성자 </span> <br>
+        <span id = "u_name"> 작성자 </span> <br>
         <span id="b_create_at"> 작성일 </span> <br>
         <span id="b_update_at"> 수정일 </span> <br><br>
         <span id="b_content">살려주세요</span>
@@ -71,8 +73,8 @@
         <img id = "img_name" src="" class="card-img-top">
       </div>
       <div class="modal-footer d-flex bd-highlight mb-3">
-        <button type="submit" onclick="return deLete()" class="btn btn-danger me-auto p-2 bd-highlight border" data-bs-dismiss="modal">삭제</button>
-        <button type="button" onclick="" class="btn btn-dark p-2 bd-highlight" data-bs-dismiss="modal">수정</button>
+        <button type="submit" onclick="return deLete()" id="btn_dle" class="btn btn-danger me-auto p-2 bd-highlight border" data-bs-dismiss="modal">삭제</button>
+        <button type="button" onclick="" id="btn_update" class="btn btn-dark p-2 bd-highlight" data-bs-dismiss="modal">수정</button>
         <button type="button" onclick="closeDetailModal(); return false;" class="btn btn-light p-2 bd-highlight border" data-bs-dismiss="modal">Close</button>
       </div>
     </div>

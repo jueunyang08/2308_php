@@ -8,19 +8,18 @@ class BoardModel extends ParentsModel {
     public function getBoardList($arrBoardInfo) {
         $sql =
       " SELECT
-        b_no, id, b_title, b_content, img_name, b_create_at, b_update_at
+        b.b_no, b.id, b.b_title, b.b_content, b.img_name, b.b_create_at, b.b_update_at, u.u_name
         FROM 
-        board 
+        board b
+        JOIN user u
+        ON b.id = u.id
         WHERE 
         b_type = :b_type
-        -- and
-        -- id = :id
         and
         b_delete_at is null ";
 
         $prepare = [
             ":b_type" => $arrBoardInfo["b_type"]
-            // ":id" => $arrBoardInfo["id"]
         ];
 
         try {
@@ -70,12 +69,14 @@ class BoardModel extends ParentsModel {
     public function getBoardDetail($arrBoardDetailInfo) {
         $sql =
       " SELECT
-        b_no, id, b_title, b_content, img_name, b_create_at, b_update_at
-        FROM 
-        board 
-        WHERE 
-        b_no = :b_no
-        ";
+      b.b_no, b.id, b.b_title, b.b_content, b.img_name, b.b_create_at, b.b_update_at, u.u_name
+      FROM 
+      board b
+      JOIN user u
+      ON b.id = u.id
+      WHERE 
+      b_no = :b_no
+    ";
 
         $prepare = [
             ":b_no" => $arrBoardDetailInfo["b_no"]
@@ -97,17 +98,23 @@ class BoardModel extends ParentsModel {
         $sql =
         " UPDATE board SET b_delete_at = NOW()
         WHERE b_no = :b_no
+        and id = :id
         ";
 
         $prepare = [
-            ":b_no" => $arrBoardDeleteInfo["b_no"]
+            ":b_no" => $arrBoardDeleteInfo["b_no"],
+            ":id" => $arrBoardDeleteInfo["id"]
         ];
 
         try {
 
             $stmt = $this->conn->prepare($sql);
             $result = $stmt->execute($prepare);
-        
+            /*
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($prepare);
+            $result = $stmt->rowCount(); // 쿼리에 영향을 받은 레코드 수를 반환 // columnCount : select 한 개수
+            */
             return $result; // 정상 : 쿼리 결과 리턴
         }
         catch(Exception $e) {

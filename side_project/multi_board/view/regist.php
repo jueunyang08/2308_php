@@ -37,7 +37,7 @@
 
                 <div class="mb-3">
                 <label for="u_name" class="form-label">이름</label>
-                <input type="text" minlength="1" maxlength="50" class="form-control" id="u_name" name="u_name">
+                <input type="text" minlength="1" maxlength="50" class="form-control" id="u_name" name="u_name" autocomplete="off">
                 </div>
                 
                 <a href="/user/login" class="btn btn-light border">취소</a>

@@ -21,15 +21,28 @@ function openDetail(b_no) {
         const IMG = document.querySelector('#img_name');
         const CREATE_AT = document.querySelector('#b_create_at');
         const UPDATE_AT = document.querySelector('#b_update_at');
-        const WRITER = document.querySelector('#b_writer');
+        const WRITER = document.querySelector('#u_name');
         const BNO = document.querySelector('#b_no');
+        const DEL_BTN = document.querySelector('#btn_dle');
+        const UPDATE_BTN = document.querySelector('#btn_update');
 
         TITLE.innerHTML = data.data.b_title;
         CONTENT.innerHTML = '내용 : ' + data.data.b_content;
         CREATE_AT.innerHTML = '작성일 : ' + data.data.b_create_at;
         UPDATE_AT.innerHTML = '수정일 : ' + data.data.b_update_at;
+        WRITER.innerHTML = '작성자 : ' +data.data.u_name;
         IMG.setAttribute('src', data.data.img_name);
         BNO.value= data.data.b_no;
+
+        // 삭제 버튼 제어
+        if(data.data.uflg === "1") {
+            DEL_BTN.classList.remove('d-none');
+            UPDATE_BTN.classList.remove('d-none');
+        } else {
+            DEL_BTN.classList.add('d-none');
+            UPDATE_BTN.classList.add('d-none');
+        }
+
 
         // 모달 오픈
         openModal();
@@ -74,6 +87,31 @@ function Checkid() {
         }
         
        
+    })
+    .catch( error => console.log(error) )
+}
+
+// 삭제처리
+
+function deleteCard() {
+    const B_PK = document.querySelector('#del_id').value;
+    const URL = '/board/remove?b_no=' + B_PK;
+
+    fetch(URL)
+    .then( response => response.json() )
+    .then( data => {
+        if(data.errflg === "0") {
+            // 모달 닫기
+            closeDetailModal();
+
+            // 카드 삭제
+            const MAIN = document.querySelector('main');
+            const CARD_NAME = '#card' + data.id;
+            const DEL_CARD = document.querySelector(CARD_NAME);
+            MAIN.removeChild(DEL_CARD);
+        } else {
+            alert(data.msg);
+        }
     })
     .catch( error => console.log(error) )
 }

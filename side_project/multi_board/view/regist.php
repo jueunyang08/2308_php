@@ -41,7 +41,7 @@
                 </div>
                 
                 <a href="/user/login" class="btn btn-light border">취소</a>
-                <button type="submit" class="btn btn-success border float-end">가입</button>
+                <button type="submit" onclick="Complete(); return false;" class="btn btn-success border float-end">가입</button>
                 
                 </form>
     </main>

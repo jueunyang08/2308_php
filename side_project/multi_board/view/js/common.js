@@ -7,6 +7,11 @@ function deLete() {
     }
 };
 
+function Complete() {
+            alert('회원가입 완료');
+            return true;
+};
+
 let test;
 // 상세 모달 제어
 function openDetail(b_no) {

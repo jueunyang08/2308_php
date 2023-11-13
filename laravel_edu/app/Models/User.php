@@ -1,5 +1,6 @@
 <?php
-
+// model 생성 방법 
+// php artisan make:model 모델명 -mfs
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;

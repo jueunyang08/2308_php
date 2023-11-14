@@ -158,3 +158,6 @@ Route::get('/child2', function () {
     return view('child2');
 });
 
+// DB 관련 실습용
+use App\Http\Controllers\BoardController;
+Route::get('/boards',[BoardController::class, 'index'])->name('board.index');

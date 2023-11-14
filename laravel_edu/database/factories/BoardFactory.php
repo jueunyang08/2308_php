@@ -15,9 +15,15 @@ class BoardFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
+
     {
+        $date=$this->faker->datetimeBetween('-1 years');
         return [
-            //
+            'categories_no' => $this->faker->randomNumber(1)
+            ,'title'        => $this->faker->realText(50)
+            ,'content'      => $this->faker->realText(1000)
+            ,'created_at'   => $date
+            ,'updated_at'   => $date
         ];
     }
 }

@@ -61,7 +61,6 @@ class BoardController extends Controller
         ->select('b_title', 'b_content')
         ->where('b_id', '=', $id)
         ->get();
-        // return var_dump($result);
         return view('detail')->with('data', $result);
     }
 

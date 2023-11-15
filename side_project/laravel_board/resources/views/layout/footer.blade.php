@@ -1,1 +1,1 @@
-<h2>푸터</h2>
+<footer class ='bg-dark text-light fixed-bottom text-center p-3'>그린 저작권</footer>

@@ -3,12 +3,23 @@
 @section('title', 'Login')
 
 @section('main')
-    <main>
-        <h1>Login</h1>
-        {{-- <label for="id">ID</label>
-        <input type="text" id="id" name="id">
-        <br>
-        <label for="pw">PW</label>
-        <input type="password" id="pw" name="pw"> --}}
+    <main class="d-flex justify-content-center align-items-center h-75">
+        
+        <form method="POST" action="{{route('user.login.post')}}" style="width: 300px;">
+            @include('layout.errorlayout')
+            <br>
+            @csrf
+            <div class="mb-3">
+            <label for="email" class="form-label">이메일</label>
+            <input type="text" class="form-control" id="email" name="email" autocomplete="off">
+            
+            </div>
+            <div class="mb-3">
+            <label for="password" class="form-label">비밀번호</label>
+            <input type="password" class="form-control" id="password" name="password">
+            </div>
+            
+            <button type="submit" class="btn btn-dark float-end">로그인</button>
+            </form>
     </main>
 @endsection

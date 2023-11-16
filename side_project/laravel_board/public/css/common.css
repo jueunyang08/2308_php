@@ -12,6 +12,21 @@ main {
     gap: 1rem;
     padding: 50px;
 }
+.insert_btn {
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    background-color: rgb(53, 53, 53);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
 /* #modal {
     position: absolute;
     top: 0; 

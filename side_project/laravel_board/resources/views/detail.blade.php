@@ -32,7 +32,9 @@
         <p class="card-text">{{$data->updated_at}}</p>
     </div>
 </main>
-<button onclick="return deLete()" type="submit">삭제</button>
+<a href="{{route('user.login.get')}}"><button class="btn btn-dark p-2 bd-highlight" type="button">뒤로가기</button></a>
+<a href="{{route('board.edit', ['board' => $data->b_id])}}"><button class="btn btn-dark p-2 bd-highlight" type="button">수정</button></a>
+<button class="btn btn-danger me-auto p-2 bd-highlight border" onclick="return deLete()" type="submit">삭제</button>
 </form>
 @endsection
 

@@ -100,7 +100,9 @@ class BoardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $result = Board::find($id);
+
+        return view('update')->with('data', $result);
     }
 
     /**
@@ -112,7 +114,18 @@ class BoardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = Board::find($id);
+
+        $arrInputData = $request->only('b_title', 'b_content');
+
+        $result->update($arrInputData);
+        // $result->update(['b_title' => $request->b_title, 'b_content' => $request->b_content]);
+
+        // $result->save(); // save 하면 변경한 값 업데이트
+
+        return redirect()->route('board.show', ['board' => $id]);
+
+
     }
 
     /**

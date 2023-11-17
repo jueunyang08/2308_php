@@ -6,9 +6,9 @@
     <main class="d-flex justify-content-center align-items-center h-75">
         
         <form method="POST" action="{{route('user.login.post')}}" style="width: 300px;">
+            @csrf
             @include('layout.errorlayout')
             <br>
-            @csrf
             <div class="mb-3">
             <label for="email" class="form-label">이메일</label>
             <input type="text" class="form-control" id="email" name="email" autocomplete="off">

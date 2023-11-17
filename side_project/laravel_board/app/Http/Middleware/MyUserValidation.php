@@ -35,8 +35,8 @@ class MyUserValidation
             'email' => 'required|email|max:50', // 필수입력 | 이메일형식 | 최대:50
             'name' => 'required|regex:/^[a-zA-z가-힣]+$/|min:2|max:50', // 필수입력 | 정규식 |
             'password' => 'required', // passwordchk 랑 같은지 체크
-            'passwordchk' => 'same:password',
-            'tel' => 'regex:/^010[0-9]{4}[0-9]{4}$'
+            'passwordchk' => 'same:password'
+            // 'tel' => 'regex:/^010[0-9]{4}[0-9]{4}$'
         ];
 
         // request 파라미터

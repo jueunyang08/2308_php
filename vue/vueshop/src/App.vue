@@ -19,7 +19,7 @@
     </div>
   </div>
 </Transition>
-  <!-- 상품 리스트 -->
+  <!-- 상품 리스트~ -->
   <div>
     <div v-for="(item, i) in products" :key="i">
       <h4 @click="modalFlg = true; key = i">{{ item.name }}</h4>

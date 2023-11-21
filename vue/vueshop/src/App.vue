@@ -1,32 +1,31 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <!-- 헤더 -->
-  <div class="nav">
-    <!-- 반복문 -->
-    <a v-for="(item, i) in navlist" :key="i">{{ i + ' : ' + item }}</a>
-  </div>
+  <Header :data="navlist"></Header>
+  <!-- 할인 배너 -->
+  <Discount> </Discount>
 
+ 
   <!-- 모달 -->
   <Transition name="modalAni">
-  <div class="bg_black" v-if="modalFlg">
-    <div class="bg_white">
-      <p class="close" @click="modalFlg = false">X</p>
-      <img :src="products[key].img" alt=""/>
-      <h4>{{products[key].name}}</h4>
-      <p>{{products[key].price}} 원</p>
-      <p>{{products[key].content}}</p>
-      <p>허위 매물 신고 수 : {{products[key].reportCnt}}</p>
-    </div>
-  </div>
-</Transition>
+
+    <Modal 
+    v-if="modalFlg"
+    :data="modalProduct"
+    @fncModal = "fncModal"
+    >
+    </Modal>
+  
+  </Transition>
+
+
   <!-- 상품 리스트~ -->
-  <div>
-    <div v-for="(item, i) in products" :key="i">
-      <h4 @click="modalFlg = true; key = i">{{ item.name }}</h4>
-      <p>{{ item.price }} 원</p>
-      <button @click="plusOne(i)">허위 매물 신고</button>
-      <span>신고수 : {{ item.reportCnt }} </span>
-    </div>
+  <List v-for="(item, i) in products" :key="i"
+  :data="item" :data2="i"
+  @PlusOne = "plusOne"
+  @fncModal = "fncModal"
+
+  ></List>
       
       <!-- <h4 :style="sty_color_red">{{products[0]}}</h4>
       <p>{{prices[0]}} 원</p>
@@ -38,12 +37,19 @@
     <div>
       <h4>{{products[2]}}</h4>
       <p>{{prices[2]}} 원</p> -->
-  </div>
+  
 </template>
 
 <script>
 import data from './assets/js/data.js';
-document.ge
+
+import Discount from './components/Discount.vue';
+
+import Header from './components/Header.vue';
+
+import Modal from './components/Modal.vue';
+
+import List from './components/List.vue'
 
 
 export default {
@@ -64,15 +70,31 @@ export default {
      modalFlg: false,
 
      key : 0,
+
+     modalProduct: {}
     }
   },
   // methods : 함수를 정의하는 영역
   methods: {
     plusOne(i) {
       this.products[i].reportCnt++;
-    }
-  }
+    },
+    fncModal(flg,item={}) {
+      this.modalFlg = flg
+      this.modalProduct = item
+    },
+    // modalOpen(item) {
+    //   this.modalFlg = true;
+    //   this.modalProduct = item;
+    // },
+  },
 
+  components: {
+    Discount,
+    Header,
+    Modal,
+    List,
+  }
 }
 </script>
 

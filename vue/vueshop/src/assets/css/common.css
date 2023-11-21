@@ -30,6 +30,13 @@
     cursor: pointer;
   }
 
+  .discount {
+    background: beige;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+  }
   /* 모달 등장 애니메이션 */
   .modalAni-enter-from  {
     opacity: 0;

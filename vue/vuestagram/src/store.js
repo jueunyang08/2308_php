@@ -9,6 +9,7 @@ const store = createStore({
             imgURL: '', // 작성탭 표시용 이미지 URL 저장용
             postFileData: null, // 글 작성 파일 데이터 저장용
             lastBoardId: 0, // 가장 마지막 로드 된 게시글 번호 저장용
+            flgBtnMoreView : true, // 더보기 버튼 활성여부 플래그
         }
     },
 
@@ -19,7 +20,11 @@ const store = createStore({
         // 초기 데이터 세팅용
         setBoardList(state, data) {
             state.boardData = data;
-            state.lastBoardId = data[data.length - 1].id;
+            this.commit('setLastBoardId', data[data.length - 1].id);
+        },
+        // 마지막 게시글 번호 세팅용
+        setLastBoardId(state, num) {
+            state.lastBoardId = num;
         },
         // 탭 ui 세팅용
         setFlgTapUI(state, num) {
@@ -42,10 +47,15 @@ const store = createStore({
             state.imgURL = '';
             state.postFileData = null;
         },
+        // 더보기 데이터 추가
         setPushData(state, data) {
             state.boardData.push(data);
             state.lastBoardId = state.boardData[state.boardData.length - 1].id;
-        }
+        },
+        // 더보기 버튼 활성화
+        setFlgBtnMoreView(state, boo) {
+            state.flgBtnMoreView = boo;
+        },
     },
     //-----------------------------------------------
 
@@ -117,12 +127,21 @@ const store = createStore({
 
             axios.get(url, header)
             .then(res => {
-                console.log(res.data);
+                
                 // commit : mutations을 호출하는 메소드
-                context.commit('setPushData', res.data);
+
+                // 1. data 가 있을때 push
+                if(res.data) {
+                    context.commit('setPushData', res.data);
+                // 2. data 가 없을 경우 더보기 버튼 비활성화
+                }else {
+                    context.commit('setFlgBtnMoreView', false);
+                    
+                }
+                
             })
             .catch(err => {
-                console.log(err);
+                console.log(err.response.data);
             })
         },
     }

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoardController; // 보드컨트롤러 사용
+use Illuminate\Support\Facades\DB;
+use App\Models\Board;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,14 @@ use App\Http\Controllers\BoardController; // 보드컨트롤러 사용
 */
 
 Route::get('/', function () {
-    return view('board');
+
+           // 게시글 획득
+           $boardresult = Board::get();
+           $categoryresult = Category::get();
+           
+
+           return view('list')->with('b_data', $boardresult)->with('c_data', $categoryresult);
+
 });
 
 // 보드관련

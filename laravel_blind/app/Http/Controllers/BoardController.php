@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Models\Board;
+use App\Models\Category;
 
 class BoardController extends Controller
 {
@@ -15,10 +18,12 @@ class BoardController extends Controller
      */
     public function index()
     {
-        // 게시글 획득
-        $result = Board::get();
+           // 게시글 획득
+           $boardresult = Board::get();
+           $categoryresult = Category::get();
+           
 
-        return view('board')->with('data', $result);
+           return view('list')->with('b_data', $boardresult)->with('c_data', $categoryresult);
     }
 
     /**

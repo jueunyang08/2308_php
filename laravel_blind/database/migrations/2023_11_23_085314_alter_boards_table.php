@@ -16,6 +16,7 @@ return new class extends Migration
         //
         Schema::table('boards', function (Blueprint $table) {
             $table->char('categories_no', 1);
+            $table->integer('hits')->default(0);
 
         }); 
     }

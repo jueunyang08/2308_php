@@ -1,0 +1,12 @@
+.flex-container {
+    display: flex;
+}
+
+.content {
+    flex: 1; /* 남은 공간을 전부 차지하도록 설정 */
+    
+}
+
+.aside {
+    width: 300px; /* 원하는 너비로 조절하세요 */
+}

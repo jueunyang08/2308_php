@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Board extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
     // 테이블 정의
     protected $table = 'boards';
@@ -15,5 +16,9 @@ class Board extends Model
     // PK 정의
     protected $primaryKey = 'id';
 
-    public $timestamps = true;
+
+    protected $fillable = [
+        'title'
+        ,'content'
+    ];
 }

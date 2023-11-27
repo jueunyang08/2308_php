@@ -19,12 +19,7 @@ use App\Models\Category;
 
 Route::get('/', function () {
 
-           // 게시글 획득
-           $boardresult = Board::get();
-           $categoryresult = Category::get();
-           
-
-           return view('list')->with('b_data', $boardresult)->with('c_data', $categoryresult);
+    return redirect('/board');
 
 });
 

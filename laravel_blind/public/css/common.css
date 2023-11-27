@@ -10,3 +10,27 @@
 .aside {
     width: 300px; /* 원하는 너비로 조절하세요 */
 }
+.wrap-info, .pv::before {
+background: url(../img/sp-kr.png);
+background-repeat: no-repeat;
+background-size:600px 900px;
+background-position: -10px -600px;
+}
+
+.wrap-info {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin: -1px 3px 1px 0;
+}
+.pv {
+    color: #94969b;
+    font-size: 13px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #222;
+}

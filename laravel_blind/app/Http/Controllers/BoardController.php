@@ -18,12 +18,33 @@ class BoardController extends Controller
      */
     public function index()
     {
-           // 게시글 획득
-           $boardresult = Board::get();
-           $categoryresult = Category::get();
-           
+        // 카테고리 name
+        $CateGoryName = DB::table('categories')
+        ->select('name', 'id')
+        ->orderBy('id','asc')
+        ->get();
 
-           return view('list')->with('b_data', $boardresult)->with('c_data', $categoryresult);
+        // 카테고리 네임 + 보드 정보
+        for ($i = 0; $i < count($CateGoryName); $i++) {
+            $list = DB::table('categories')
+            ->select('name','id')
+            ->orderBy('id','asc')
+            ->where('categories.no', '=', $i)
+            ->get();
+
+            $board = DB::table('boards')
+            ->select('boards.title', 'boards.content', 'categories.name', 'boards.hits')
+            ->join('categories', 'categories.no', 'boards.categories_no')
+            ->where('categories.no', '=', $i)
+            ->limit(5)
+            ->get();
+            
+            $result[$i][0]=$list;
+            $result[$i][1]=$board;
+        }
+
+    return view('list')->with('data', $result);
+      
     }
 
     /**

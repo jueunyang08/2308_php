@@ -8,24 +8,30 @@
         <main class="flex-container">
             <div class="content">
                 <div class="list">
-                    @forelse($c_data as $item1)
+                    @forelse($data as $key => $item)
+        
+                    <div id="category{{$item[0][0]->id}}">{{ $item[0][0]->name }}<a href="" class="more_btn"> 더보기></a></div>
                         <div class="categorydiv">
-                            <div>{{ $item1->name }} <a href="" class="more_btn">더보기></a></div>
-                            <hr>
-                            @forelse ($b_data as $item2)
                                 <div>
-                                    <p>{{ $item2->title }}</p>
-                                    <div>{{ $item2->hits }}</div>
+                                    @forelse ($item[1] as $val)
+                                    <div>
+                                        {{-- 글제목 --}}
+                                        <span>{{ $val->title }}</span>
+                                        {{-- 조회수 --}}
+                                        <div class="wrap-info"></div><a href="" class="pv">{{ $val->hits }}</a>
+                                    </div>
+                                    @empty
+                                        <p>비어있음</p>
+                                    @endforelse
                                 </div>
-                            @empty
-                                <!-- b_data가 비어있을때 처리 -->
-                                <div>게시글 없음</div>
-                            @endforelse
+                            <hr>
                         </div>
                     @empty
                         <!-- c_data가 비어있을때 처리 -->
                         <div>게시글 없음</div>
                     @endforelse
+
+                    
                 </div>
             </div>
             <aside class="aside">

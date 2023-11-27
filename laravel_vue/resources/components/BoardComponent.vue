@@ -1,11 +1,11 @@
 <template lang="">
     <div>
-        APP VUE 컴포넌트dd
+        <h2>Board VUE 컴포넌트</h2>
     </div>
 </template>
 <script>
 export default {
-    name: 'App'
+    name: 'BoardComponent'
 }
 </script>
 <style lang="">

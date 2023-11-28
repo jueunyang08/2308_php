@@ -1,4 +1,9 @@
-const C1 = document.querySelector('#category1');
-const img = ["/img/topic_logo_kr_1587367050.png", ];
+// 메인 로고 이미지
+for(let i=0; i<=15; i++) {
+    const C1 = document.querySelector('#category'+(i+1));
+    const img = "/img/category_img_"+i+".png";
+    C1.setAttribute('src',img);
+}
 
-C1.setAttribute('src',img);
+
+

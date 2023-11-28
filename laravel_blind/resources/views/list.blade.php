@@ -13,7 +13,7 @@
                     <div><img id="category{{$item[0][0]->id}}" width="32" height="32"><span class="category-name">{{ $item[0][0]->name }}</span><a href="" class="more_btn"> 더보기></a></div>
                         <div class="categorydiv">
                                 <div>
-                                    @forelse ($item[1] as $val)
+                                    @forelse ($item[1] as $val) 
                                     <div>
                                         {{-- 글제목 --}}
                                         <span>{{ $val->title }}</span>

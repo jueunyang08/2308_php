@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto','Noto Sans KR','Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
+}
+
 .flex-container {
     display: flex;
 }
@@ -34,8 +40,9 @@ a {
     cursor: pointer;
     color: #222;
 }
-.category_name {
-    
+.category-name {
+    font-size: 18px;
+    font-weight: bold;
 }
 img {
     vertical-align: middle;

@@ -33,7 +33,6 @@ class CategorySeeder extends Seeder
             ,['no' => '14', 'name' => '스포츠']
             ,['no' => '15', 'name' => '육아']
             ,
-
         ]);
     }
 }

@@ -3,47 +3,229 @@
     padding: 0;
     font-family: 'Roboto','Noto Sans KR','Nanum Gothic','Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
 }
-
-.flex-container {
-    display: flex;
-}
-
-.content {
-    flex: 1; /* 남은 공간을 전부 차지하도록 설정 */
-    
-}
-
-.aside {
-    width: 300px; /* 원하는 너비로 조절하세요 */
-}
-.wrap-info, .pv::before {
-background: url(../img/sp-kr.png);
-background-repeat: no-repeat;
-background-size:600px 900px;
-background-position: -10px -600px;
-}
-
-.wrap-info {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin: -1px 3px 1px 0;
-}
-.pv {
-    color: #94969b;
-    font-size: 13px;
-}
-
 a {
     text-decoration: none;
     cursor: pointer;
     color: #222;
 }
-.category-name {
-    font-size: 18px;
-    font-weight: bold;
-}
 img {
     vertical-align: middle;
 }
+button {
+    overflow: visible;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+/* 헤더 */
+    .fnc_ux {
+        position: relative;
+        display: block;
+        height: 40px;
+        background-color: #222;
+    }
+    .add_gnb {
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px solid #d4d4d4;
+        position: relative;
+        min-height: 61px;
+        z-index: 100;
+    }
+    header.add_gnb .wrapped {
+        position: relative;
+        max-width: 1140px;
+        height: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    header.add_gnb h1 {
+        position: absolute;
+        top: 22px;
+        left: 20px;
+    }
+    /* 블라인드 */
+    header.add_gnb h1 a {
+        background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+        background-size: 600px 900px;
+        background-position: -9px -10px;
+        display: inline-block;
+        width: 94px;
+        height: 40px;
+        text-indent: -9999px;
+    }
+    /* 토픽 */
+    header.add_gnb h1 .topic {
+        bottom: 4px;
+        left: calc(100% + 7px);
+        background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+        background-size: 600px 900px;
+        background-position: -112px -28px;
+        width: 54px;
+        height: 22px;
+        overflow: hidden;
+        position: absolute;
+        text-indent: -999em;
+    }
+/* 왼쪽 영역 */
+
+    /* flex */
+    .container .wrapped {
+        display: flex;
+        flex-direction: row;
+        max-width: 1140px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 40px 20px 0;
+    }
+    .home-list .topic-list {
+        display: grid;
+        padding: 0;
+        border-bottom: none;
+    }
+    .home-list .topic-list.best {
+        width: 100%;
+        margin: 35px 0 0;
+    }
+    .topic-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+        gap: 50px;
+    }
+
+    .content {
+        width: 736px;
+        min-height: 800px;
+    }
+    /* 1 */
+    /* 검색바 */
+
+    /* 검색바 테두리 */
+    .search-div {
+        box-sizing: border-box;
+        position: relative;
+        width: 100%;
+        height: 60px;
+        border-radius: 30px;
+        border: 2px solid #222;
+    }
+    .section-btn-srch {
+        position: relative;
+        display: inline-block;
+        width: 56px;
+        height: 56px;
+    } 
+    .btn-srch:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(https://static.teamblind.com/img/www_kr/sp-kr.png?time=sep2023) no-repeat;
+    background-size: 600px 900px;
+    background-position: -10px -350px;
+    content: '';
+    }
+
+    /* 검색바 input */
+    input[type="search"] {
+        position: absolute;
+        box-sizing: border-box;
+        width: 90%;
+        height: 100%;
+        border: none;
+        font-size: 18px;
+        background-color: transparent;
+    }
+    input[type="search"]:focus {
+        outline: none;
+    }
+    input[type="search"]::placeholder {
+        color: black;
+    }
+    /* 카테고리 */
+
+        /* 카테고리명 */
+        .category-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /* 카테고리 박스 */
+        .box {
+            width: 340px;
+            height: 200px;
+        }
+        /* 카테고리 네임 div */
+        .category-name-div {
+            width: 100%;
+            position: relative;
+            line-height: 60px;
+            height: 60px;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 10px;
+        }
+            /* 더보기 버튼 */
+            .more-btn {
+                position: absolute;
+                right: 0;
+                font-size: 12px;
+            }
+        /* 카테고리 글 div */
+        .article {
+            position: relative;
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            width: 100%;
+            height: 30px;
+        }
+            /* 글 제목 div */
+            .article-title .wrap-info {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+                /* 조회수 아이콘 */
+                .wrap-info, .pv::before {
+                    background: url(../img/sp-kr.png);
+                    background-repeat: no-repeat;
+                    background-size:600px 900px;
+                    background-position: -10px -600px;
+                }
+                .wrap-info {
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                
+                }
+                .pv {
+                    color: #94969b;
+                    font-size: 13px;
+                }
+            .article-title {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 300px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 14px;
+            }
+            /* 조회수 div */
+            .article-view {
+                width: 100%;
+                margin: auto;
+                padding-left: 10px;
+            }
+        /* 비어있음 */
+        .article-empty {
+            width: 100px;
+            height: 20px;
+            font-size: 13px;
+            margin: 100px auto;
+            color:#94969b;
+            text-align: center;
+        }

@@ -24,7 +24,8 @@ Route::get('/', function () {
 });
 
 //  보드 기본 리소스 라우트
-Route::resource('/board', BoardController::class);
+// Route::resource('/board', BoardController::class);
 
 // 사용자 정의 메소드에 대한 라우트
-Route::get('/board/topic', [BoardController::class, 'showTopic']);
+Route::get('/board', [BoardController::class, 'index'])->name('board.index');
+Route::get('/board/topic/{id}', [BoardController::class, 'showTopic'])->name('board.showTopic');

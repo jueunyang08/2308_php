@@ -23,7 +23,7 @@
                     {{---------------------------------- 박스 --}}
                     <div class="box">
                     {{-- 카테고리명 --}}
-                        <div class="category-name-div"><img id="category{{$item[0][0]->id}}" width="32" height="32"><span class="category-name">{{ $item[0][0]->name }}</span><a href="" class="more-btn"> 더보기></a></div>
+                        <div class="category-name-div"><img id="category{{$item[0][0]->id}}" width="32" height="32"><span class="category-name">{{ $item[0][0]->name }}</span><a href="{{route('board.showTopic', ['id' => $item[0][0]->id])}}" class="more-btn"> 더보기></a></div>
                             @forelse ($item[1] as $val) 
                                 <div class="article">
                                     {{-- 글제목 --}}

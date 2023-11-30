@@ -3,5 +3,5 @@
 @section('title', '블라블라')
 
 @section('main')
-dd
+<h1>fdd</h1>
 @endsection

@@ -46,7 +46,11 @@ class BoardController extends Controller
     return view('list')->with('data', $result);
     }
 
-    public function showTopic() {
+    public function showTopic($id) {
+
+    $id = Category::find($id);
+
+
     // 카테고리 name
     $CateGoryName = DB::table('categories')
     ->select('name', 'id')
@@ -56,7 +60,7 @@ class BoardController extends Controller
      // 카테고리 네임 + 보드 정보
     for ($i = 0; $i < count($CateGoryName); $i++) {
         $list = DB::table('categories')
-        ->select('name','id')
+        ->select('name','id','no')
         ->orderBy('id','asc')
         ->where('categories.no', '=', $i)
         ->get();
@@ -72,7 +76,7 @@ class BoardController extends Controller
         $result[$i][1]=$board;
     }
 
-    return view('topic')->with('data', $result);
+    return view('topic')->with('data', $result)->with('id', $id);
     }
     /**
      * Show the form for creating a new resource.

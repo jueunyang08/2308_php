@@ -1,1 +1,1 @@
-<p>푸터</p>
+<div class="footer"><p class="">푸터</p></div>

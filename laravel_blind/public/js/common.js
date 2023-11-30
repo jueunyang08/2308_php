@@ -5,5 +5,11 @@ for(let i=0; i<=15; i++) {
     C1.setAttribute('src',img);
 }
 
+// topic 상단 이미지
+
+// const AD = document.querySelector('#adwrapimg');
+// const url_topicimg = '/img/web_banner_01.png';
+// TIMG.setAttribute('src', url_topicimg);
+
 
 

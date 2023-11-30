@@ -48,35 +48,15 @@ class BoardController extends Controller
 
     public function showTopic($id) {
 
-    $id = Category::find($id);
+    $result = Category::find($id);
 
-
-    // 카테고리 name
-    $CateGoryName = DB::table('categories')
-    ->select('name', 'id')
-    ->orderBy('id','asc')
+    $result = DB::table('boards')
+    ->select('boards.title', 'boards.content', 'boards.hits')
+    ->join('categories', 'categories.no', 'boards.categories_no')
+    ->where('categories.id', '=', $id)
     ->get();
 
-     // 카테고리 네임 + 보드 정보
-    for ($i = 0; $i < count($CateGoryName); $i++) {
-        $list = DB::table('categories')
-        ->select('name','id','no')
-        ->orderBy('id','asc')
-        ->where('categories.no', '=', $i)
-        ->get();
-
-        $board = DB::table('boards')
-        ->select('boards.title', 'boards.content', 'categories.name', 'boards.hits')
-        ->join('categories', 'categories.no', 'boards.categories_no')
-        ->where('categories.no', '=', $i)
-        ->limit(5)
-        ->get();
-        
-        $result[$i][0]=$list;
-        $result[$i][1]=$board;
-    }
-
-    return view('topic')->with('data', $result)->with('id', $id);
+    return view('topic')->with('data', $result);
     }
     /**
      * Show the form for creating a new resource.

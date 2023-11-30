@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoardController; // 보드컨트롤러 사용
+use App\Http\Controllers\UserController; // 보드컨트롤러 사용
 use Illuminate\Support\Facades\DB;
 use App\Models\Board;
+use App\Models\User;
 use App\Models\Category;
 
 /*
@@ -22,7 +24,10 @@ Route::get('/', function () {
     return redirect('/board');
 
 });
+// < User > 사용자 정의 메소드에 대한 라우트
+Route::get('/user/login', [UserController::class,'loginget'])->name('user.login.get');
 
+Route::get('/user/registraion', [UserController::class,'registrationget'])->name('user.registration.get'); // 회원 가입 화면 이동
 //  보드 기본 리소스 라우트
 // Route::resource('/board', BoardController::class);
 

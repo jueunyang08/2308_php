@@ -7,13 +7,15 @@
 
     <div class="grid">
   
-      <form action="https://httpbin.org/post" method="POST" class="form login">
-  
+      <form action="{{route('user.login.post')}}" method="POST" class="form login">
+        @csrf
+        @include('layout.errorlayout')
+        <br>
         <div class="form__field">
           <label for="login__username"><svg class="icon">
               <use xlink:href="#icon-user"></use>
             </svg><span class="hidden">Username</span></label>
-          <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="email" required>
+          <input autocomplete="username" id="login__username" type="text" name="email" class="form__input" placeholder="email" required>
         </div>
   
         <div class="form__field">

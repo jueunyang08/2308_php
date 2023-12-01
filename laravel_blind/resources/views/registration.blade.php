@@ -8,7 +8,9 @@
     <div class="grid2">
   
       <form action="{{route('user.registration.post')}}" method="POST" class="form login">
-  
+        @include('layout.errorlayout')
+        <br>
+        @csrf
         <div class="form__field">
           <label for="email"><svg class="icon">
               <use xlink:href="#icon-user"></use>
@@ -31,10 +33,10 @@
           </div>
 
           <div class="form__field">
-            <label for="username"><svg class="icon">
+            <label for="name"><svg class="icon">
                 <use xlink:href="#icon-user"></use>
               </svg><span class="hidden">email</span></label>
-            <input autocomplete="username" id="username" type="text" name="username" class="form__input" placeholder="username" required>
+            <input autocomplete="name" id="name" type="text" name="name" class="form__input" placeholder="username" required>
           </div>
   
         <div class="form__field">

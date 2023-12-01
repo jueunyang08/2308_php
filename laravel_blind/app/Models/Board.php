@@ -20,5 +20,7 @@ class Board extends Model
     protected $fillable = [
         'title'
         ,'content'
+        ,'categories_no'
+        ,
     ];
 }

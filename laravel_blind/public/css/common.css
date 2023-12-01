@@ -52,7 +52,7 @@ button {
         right: 20px;
     }
     .btn_signin {
-        display: block;
+        display: inline-block;
         text-align: center;
         width: 82px;
         height: 40px;
@@ -60,7 +60,34 @@ button {
         line-height: 38px;
         border: 1px solid #d4d4d4;
         font-weight: bold;
+        text-decoration: none;
+        color: #222;
+        background-color: white;
     }
+    .btn_signin:hover {
+        text-decoration: none;
+        color: #222;
+    }
+
+    .btn_write {
+        display: inline-block;
+        text-align: center;
+        width: 82px;
+        height: 40px;
+        font-size: 14px;
+        line-height: 38px;
+        border: 1px solid #d4d4d4;
+        font-weight: bold;
+        background-color: rgb(207, 22, 22);
+        color: white;
+        text-decoration: none;
+    }
+    .btn_write:hover {
+        color: white;
+        text-decoration: none;
+        background-color: rgb(230, 27, 27);
+    }
+
 /* 푸터 */
 .footer {
     width: 100%;
@@ -198,6 +225,12 @@ button {
                 position: absolute;
                 right: 0;
                 font-size: 12px;
+                text-decoration: none;
+                color: #222;
+            }
+            .more-btn:hover {
+                text-decoration: none;
+                color: #8d8d8d;
             }
         /* 카테고리 글 div */
         .article {
@@ -524,5 +557,10 @@ input[type="submit"] {
     font-size: 13px;
     padding-top: 5px;
 }
-
-
+/* ----------------------- insert -------------------------- */
+.w100 {
+    width: 100%;
+}
+.h50 {
+height: 50px;
+}

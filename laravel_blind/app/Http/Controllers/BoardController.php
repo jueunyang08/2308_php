@@ -65,7 +65,14 @@ class BoardController extends Controller
      */
     public function create()
     {
-        //
+
+        // 카테고리 name
+        $CateGoryName = DB::table('categories')
+        ->select('name', 'no')
+        ->orderBy('no','asc')
+        ->get();
+        return view('insert')->with('CateGoryName', $CateGoryName);
+       
     }
 
     /**
@@ -76,7 +83,10 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $arrInputData = $request->only('title', 'content','categories_no');
+        $result = Board::create($arrInputData);
+
+        return redirect()->route('board.index');
     }
 
     /**

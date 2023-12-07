@@ -40,7 +40,7 @@
           </div>
   
         <div class="form__field">
-          <input type="submit" value="Sign Up">
+          <input type="submit" class="button_line_none" value="Sign Up">
         </div>
   
       </form>

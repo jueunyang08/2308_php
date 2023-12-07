@@ -451,7 +451,7 @@ a:hover {
 
 input {
   background-image: none;
-  border: 0;
+ 
   color: inherit;
   font: inherit;
   margin: 0;
@@ -557,6 +557,10 @@ input[type="submit"] {
     font-size: 13px;
     padding-top: 5px;
 }
+.form__input, .button_line_none {
+    border: 0;
+}
+
 /* ----------------------- insert -------------------------- */
 .w100 {
     width: 100%;
@@ -564,3 +568,8 @@ input[type="submit"] {
 .h50 {
 height: 50px;
 }
+
+.friend-add-btn {
+    border: #222 1px solid;
+}
+

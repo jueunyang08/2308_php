@@ -46,7 +46,7 @@
 
         {{-- 오른쪽 영역 --}}
         <aside class="aside">
-            <div class="lst-ranking">
+            {{-- <div class="lst-ranking">
                 <h1>실시간 인기 회사</h1>
                 <div class="inner">
                     <p class="rank"><em>1</em>한국전력공사</p>
@@ -60,7 +60,7 @@
                     <p class="rank"><em>9</em>한국전력공사</p>
                     <p class="rank"><em>10</em>한국전력공사</p>
                 </div>
-            </div>
+            </div> --}}
             {{-- <div id="map" style="width:500px;height:400px;"></div> --}}
         </aside>
     </div>

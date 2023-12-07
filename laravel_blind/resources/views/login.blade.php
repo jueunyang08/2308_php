@@ -26,7 +26,7 @@
         </div>
   
         <div class="form__field">
-          <input type="submit" value="Sign In">
+          <input type="submit" class="button_line_none" value="Sign In">
         </div>
   
       </form>

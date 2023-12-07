@@ -12,6 +12,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function loginget() {
+        // Auth::login($user, $remember = true);
         // 로그인 한 유저는 보드 리스트로 이동
         if(Auth::check()) {
             return redirect()->route('board.index');
@@ -22,6 +23,8 @@ class UserController extends Controller
 
     public function loginpost(Request $request) {
 
+        $remember = true;
+
         // 유저 정보 습득
         $result = User::where('email', $request->email)->first();
         if(!$result || !(Hash::check($request->password, $result->password))) {
@@ -30,7 +33,7 @@ class UserController extends Controller
         }
 
         // 유저 인증작업
-        Auth::login($result);
+        Auth::login($result, $remember);
         if(Auth::check()) {
             session($result->only('id'));
         } else {
@@ -62,8 +65,17 @@ class UserController extends Controller
     }
 
     public function logoutget() {
+      
+        $user = Auth::user();
+
+        if($user) {
+            $user->setRememberToKen(null);
+            $user->save();
+        }
+
         Session::flush(); // 세션파기
         Auth::logout(); // 로그아웃
+        
         return redirect()->route('board.index');
     }
 

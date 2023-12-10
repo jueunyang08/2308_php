@@ -9,6 +9,7 @@
          {{-- 로그인 상태 --}}
          @auth
          <div class="actions">
+            <a href="{{route('friend.show')}}">친구추가</a>
             <a class="btn_write" href="{{route('board.create')}}">글쓰기</a>
             <a class="btn_signin" href="{{route('user.logout.get')}}">로그아웃</a>
         </div>

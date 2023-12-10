@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('friendships', function (Blueprint $table) {
+        Schema::create('friend_requests', function (Blueprint $table) {
             $table->id(); //pk
             $table->string('from_user_email'); // 친구 요청 보낸 유저 이메일
             $table->string('to_user_email'); // 친구 요청 받는 유저 이메일

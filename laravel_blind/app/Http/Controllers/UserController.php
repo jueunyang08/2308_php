@@ -35,14 +35,15 @@ class UserController extends Controller
         // 유저 인증작업
         Auth::login($result, $remember);
         if(Auth::check()) {
-            session($result->only('id'));
+            session(['user' => $result]);
         } else {
             $errorMsg = "인증 에러가 발생 했습니다.";
             return view('login')->withErrors($errorMsg);
         }
-
         return redirect()->route('board.index');
     }
+
+   
 
     public function registrationget() {
 

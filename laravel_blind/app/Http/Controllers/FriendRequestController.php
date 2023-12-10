@@ -2,43 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Friendship;
+use App\Models\FriendRequest;
 
 class FriendRequestController extends Controller
 {
+
+    // 친구요청 페이지
+    public function showSend() {
+        $user = Auth::user();
+
+        return view('friendsend',['user' => $user]);
+    }
     // 친구요청 보내기 로직
     public function sendFriendRequest(Request $request)
     {
-        $inputValue = $request->input('friend_id_input');
+      
+        // 입력된 이메일 주소
+        $receiverEmail = $request->input('receiver_email');
 
-        // 입력값으로 유저 찾기
-        $friend = User::where('username', $inputValue)->first();
-
-        if (!$friend) {
-            return response()->json(['message' => '해당 유저를 찾을 수 없습니다.'], 404);
+        // 수신자 정보 찾기 (이메일 중복방지)
+        try {
+            $receiver = User::where('email', $receiverEmail)->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $exception) {
+            return redirect()->back()->withErrors(['receiver_email' => '사용자를 찾을 수 없습니다.']);
         }
 
-        // 이미 친구 관계인지 확인 (옵션)
-        $existingFriendship = Friendship::where([
-            'user_id' => auth()->user()->id,
-            'friend_id' => $friend->id,
-        ])->first();
+        // 현재 사용자 정보
+        $sender = Auth::user();
 
-        if ($existingFriendship) {
-            return response()->json(['message' => '이미 친구 관계입니다.'], 400);
+        // 이미 친구인지 확인
+        if ($sender->id === $receiver->id || $sender->isFriendWith($receiver)) {
+            return redirect()->back()->withErrors(['receiver_email' => '이미 친구입니다.']);
         }
 
-        // 친구 요청 보내기
-        $friendship = new Friendship();
-        $friendship->user_id = auth()->user()->id;
-        $friendship->friend_id = $friend->id;
-        $friendship->status = 'pending';
-        $friendship->save();
+        // 이미 친구 요청을 보냈는지 확인
+        if ($sender->hasPendingFriendRequestTo($receiver) || $receiver->hasPendingFriendRequestFrom($sender)) {
+            return redirect()->back()->withErrors(['receiver_email' => '이미 친구 요청을 보냈습니다.']);
+        }
 
-        return response()->json(['message' => '친구 요청을 보냈습니다.']);
+        // 친구 요청 생성
+        $friendRequest = new FriendRequest([
+            'from_user_email' => $sender->email,
+            'to_user_email' => $receiver->email,
+            'status' => 'pending',
+        ]);
+
+        $friendRequest->save();
+
+        // 리디렉션 또는 응답 등 추가
+        return redirect()->back()->with('success', '친구 요청을 보냈습니다.');
     }
+
+
+
+
+
 
     public function acceptFriendRequest($friendId)
     {

@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BoardController; // 보드컨트롤러 사용
-use App\Http\Controllers\UserController; // 보드컨트롤러 사용
+use App\Http\Controllers\BoardController; // 
+use App\Http\Controllers\UserController; // 
+use App\Http\Controllers\FriendRequestController; //
 use Illuminate\Support\Facades\DB;
 use App\Models\Board;
 use App\Models\User;
@@ -41,4 +42,5 @@ Route::get('/board/create', [BoardController::class, 'create'])->name('board.cre
 Route::middleware('auth')->post('/board/store', [BoardController::class, 'store'])->name('board.store');
 
 // < Friend > 메소드
-Route::post('/friend/request', [FriendRequestController::class, 'sendFriendRequest'])->name('friend.sendFriendRequest');
+Route::get('/friendsend', [FriendRequestController::class,'showSend'])->name('friend.show');
+Route::middleware('auth')->post('/friendsend', [FriendRequestController::class, 'sendFriendRequest'])->name('friend.sendFriendRequest');

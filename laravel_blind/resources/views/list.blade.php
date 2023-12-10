@@ -46,6 +46,8 @@
 
         {{-- 오른쪽 영역 --}}
         <aside class="aside">
+           
+            {{-- {{session('user')}} --}}
             {{-- <div class="lst-ranking">
                 <h1>실시간 인기 회사</h1>
                 <div class="inner">
